@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+
+\input{../common/common.tex}
+\usepackage{indentfirst}
+
+
+\newcommand{\reffig}[1]{Fig.~\ref{#1}}
+\newcommand{\refeq}[1]{Equation~\ref{#1}}
+\newcommand{\refsec}[1]{~\S~\ref{#1}}
+
+
+%\setlength{\parindent}{2.1em}
+%\setlength{\parskip}{0.3\baselineskip}
+\newcommand{\nrcore}{Core Nebulas Rank}
+\newcommand{\nrext}{Extended Nebulas Ranks}
+\newcommand{\nr}{Nebulas Rank}
+\newcommand{\dom}{{\; \texttt{dom}\;}}
+
+\onehalfspacing
+
+\newtheorem{property}{Property}
+%\addbibresource{reference.bib}
+
+\begin{document}
+\pagestyle{empty}
+%\renewcommand{\nomname}{术语表（按首字母排序）}
+%\renewcommand{\baselinestretch}{1.5}
+
+\pagecolor{\pcolor}
+
+\begin{titlepage}
+  \begin{center}
+    \vspace*{5.5cm}
+    \includegraphics[scale=0.5]{../common/Nebulas.png}
+    \vspace{0.5cm}
+
+
+    \textbf{\huge{Orange Paper: Nebulas Goverance}}
+
+    \vspace{0.5cm}
+    Iris Lee, Yulong Zeng, Aero Wang
+    \vfill
+    April 2019\\
+    Version: 0.0.3
+    \textbf{}
+  \end{center}
+
+\end{titlepage}
+\setcounter{page}{0}
+%\thispagestyle{empty}
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+\pagestyle{fancy}
+\vspace*{0.01cm}
+\input{intro.tex}
+\input{background.tex}
+\input{economic.tex}
+\input{core.tex}
+\input{core-anti.tex}
+\input{core-impl.tex}
+\input{extension.tex}
+\input{future.tex}
+\newpage
+\bibliography{reference}
+
+\newpage
+\begin{appendices}
+\input{proof}
+\input{changelog.tex}
+\end{appendices}
+
+\end{document}
