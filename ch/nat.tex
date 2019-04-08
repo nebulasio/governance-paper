@@ -15,9 +15,9 @@ NAT的发行按照NR的计算周期进行（注意，投票周期和NR周期相�
 为方便说明，此处先给出本章涉及到的符号，并给出相应的说明，
 \begin{itemize}
 \item $\mathcal{C}_i$:系统在周期$i$的NR总和；
-\item $c_i^j$:用户$j \in \mathcal{U}$在周期$i$的NR值；
-\item $d_i^j$:用户$j \in \mathcal{U}$在周期$i$质押的NAS总量；
-\item $v_i^j$:用户$j \in \mathcal{U}$在周期$i$投票的NAT总量。
+\item $c_{i,j}$:用户$j \in \mathcal{U}$在周期$i$的NR值；
+\item $d_{i,j}$:用户$j \in \mathcal{U}$在周期$i$质押的NAS总量；
+\item $v_{i,j}$:用户$j \in \mathcal{U}$在周期$i$投票的NAT总量。
 \end{itemize}
 
 \subsection{空投部分}
@@ -36,15 +36,15 @@ NAT的发行按照NR的计算周期进行（注意，投票周期和NR周期相�
 \subsection{投票激励部分}
 投票激励部分和用户的投票行为，以及NR相关，对于用户$j \in \mathcal{U}$，投票激励为
 \[
-\mu f(x_i^j) \min{\frac{v_i^j}{f(x_{i-1}^j)}}
+\mu f(x_{i,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
 \]
 \noindent 其中$\mu$为投票激励系数，$\mu > 1$，表示对用户的投票行为给予额外的奖励，可以根据系统中流通的NAS的数量变化调整。
 
 \subsection{质押部分}
-质押部分获得的NAT应少于使用该部分NAS提升NR获得的空投部分。根据NR的性质，可知，给定NAS，其存在NR的上限$h(d_i^j)$\footnote{\url{https://community.nebulas.io/d/175-nas-nr}}，
+质押部分获得的NAT应少于使用该部分NAS提升NR获得的空投部分。根据NR的性质可知，给定NAS，其存在NR的上限$h(d_{i,j})$\footnote{\url{https://community.nebulas.io/d/175-nas-nr}}，
 则质押部分获得的NAT为
 \[
-\mathcal{D}_i = \sum_{i=1}^{\infty}\alpha g(h(d_i^j))
+\mathcal{D}_i = \sum_{i=1}^{\infty}\alpha f(h(d_{i,j}))
 \]
 \noindent 其中$\alpha$为质押激励系数。
 
@@ -52,11 +52,11 @@ NAT的发行按照NR的计算周期进行（注意，投票周期和NR周期相�
 \subsection{销毁部分}
 用户每次投票，都会有一部分被销毁，剩余的部分返还给用户，同时，星云理事会为了支付投票活动的必要开销，对每笔投票征收1\%的费用。因此，对每个用户而言，销毁部分为
 \[
-0.99 * \beta^i * v_i^j
+0.99 * \beta^i * v_{i,j}
 \]
 \noindent 其中，$\beta$为销毁系数，且$\beta < 1$。因此，
 \[
-    \mathcal{M}_i = \sum_{i=1}^{\infty} 0.99 * \beta^i * v_i^j 。
+    \mathcal{M}_i = \sum_{i=1}^{\infty} 0.99 * \beta^i * v_{i,j} 。
 \]
 
 \subsection{分析}
@@ -78,11 +78,11 @@ NAT的发行按照NR的计算周期进行（注意，投票周期和NR周期相�
 	
 	同样根据星云指数黄皮书的设定，任何一个地址的NR值不会超过该地址的资产中值（指同样一个周期内，注意NR，NAT的计算都是以周为单位，具有同步性），这是因为黄皮书NR计算公式$\Omega(\cdot)\Psi(\cdot)$中，以资产中值为输入的Wilbur函数$\Omega(\cdot)$满足$\Omega(x)\leq x$，且出入度函数$\Psi(\cdot)$值域不超过1。
 	
-	结合上述结论，可得在第$n$个周期，所有地址NR总和不超过$10^9(1+0.002n)$，从而NAT增发数量不超过$g(10^9(1+0.002n))\lambda^n$
+	结合上述结论，可得在第$n$个周期，所有地址NR总和不超过$10^9(1+0.002n)$，从而NAT空投部分不超过$g(10^9(1+0.002n))\lambda^n$。
 	
-	又因为投票返还部分的NAT不超过增发部分乘以$\mu$，故即使加上返还部分带来的增量，周期$n$内NAT的总增量超过$\mu g(10^9(1+0.002n))\lambda^n$
+	又因为投票激励部分的NAT不超过增发部分乘以$\mu$，故即使加上返还部分带来的增量，周期$n$内NAT的总增量超过$\mu g(10^9(1+0.002n))\lambda^n$。另外，质押部分带来的增量不超过NAS总量$g(10^9(1+0.002n))\lambda^n$。
 	
-	最后，欲证NAT总量的收敛性，只需证明级数
+	最后，欲证NAT总量的收敛性，因为空投部分，质押部分和激励部分均随时间指数级衰减，故只需证明级数
 	$$\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n$$
 	收敛，由于$g(\cdot)$为线性函数，故
 	$$ \lim_{n\rightarrow \infty} \frac{\mu g(10^9(1+0.002(n+1)))\lambda^{n+1}}{\mu g(10^9(1+0.002n))\lambda^n} = \lambda <1$$
