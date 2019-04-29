@@ -126,8 +126,6 @@ a=\frac{10^{11}(1-\lambda)}{{(\mu +1)_{}^{\chi}\textrm{NE}}+{_{}^{\chi}\textrm{E
 	\item $_{}^{\chi}\textrm{E}$：全网交易所地址的星云指数总和。
 \end{itemize}
 
-以2019年4月16日的全网星云指数情况估算，第一周的空投比例约为：1 NR = 0.0029 NAT
-
 \subsubsection{通过质押星云链主网原生代币（NAS）获得NAT}
 
 从2019年5月6日开始，星云主网地址用户可以选择向投票的智能合约质押星云主网原生代币星云币（NAS）获得NAT。
@@ -191,18 +189,18 @@ x NAS = \alpha \times b\times c \times \lambda^{i} NAT
 第$i$周，参与链上投票的地址获得的激励规模为：
 
 \begin{align}
-\mu\times min(NATv, NATnr)
+\mu\times min(Nv, Nnr)
 \end{align}
 
 其中：
 
 \begin{itemize}
 	\item $\mu$：激励系数，初始数值$\mu$=10；
-	\item $NATv$：当周该地址投出的NAT数额；
-	\item $NATnr$：该地址上一周的星云指数对应可获得的NAT。
+	\item $Nv$：当周该地址投出的NAT数额；
+	\item $Nnr$：该地址上一周的星云指数对应可获得的NAT。
 \end{itemize}
 
-即，当该地址当周投出的$NATv$小于或等于$NATnr$的时候，获得的激励数量为$\mu\times NATv$，当该地址当周投出的$NATv$大于$NATnr$的时候，获得的激励数量为$\mu\times NATnr$。
+即，当该地址当周投出的$Nv$小于或等于$Nnr$的时候，获得的激励数量为$\mu\times Nv$，当该地址当周投出的$Nv$大于$Nnr$的时候，获得的激励数量为$\mu\times Nnr$。
 
 举例来说，假如某个地址根据上一周的星云指数值获得了10 NAT的空投，该地址上一共有1,000 NAT，如果当周该地址投出了5 NAT，小于该地址上一周星云指数对应可获得的NAT数值（10 NAT），故将获得$10\times5=50$ NAT投票激励。如果该地址投出了1,000 NAT，超出10 NAT，则将获得$10\times10=100$ NAT投票激励。
 
