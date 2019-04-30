@@ -118,16 +118,16 @@ NAT是星云生态治理中的重要投票介质，在NAT的发行过程中，�
 在第$i$周，获得NAT空投的比例约为：
 
 \begin{align}
-1 NR=f(x_{ne},x_{e,\mu })\times\lambda^{i} NAT
+1 \text{NR}=z(x_{ne},x_{e},\mu)\times\lambda^{i} \text{NAT}
 \end{align} 
 
 其中：
 \begin{itemize}
 	\item $\lambda$：衰减系数；
-	\item $f(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例；
 	\item $\mu$：投票行为的激励参数；
-	\item $_{}^{\chi}\textrm{ne}$：全网非交易所地址的星云指数总和；
-	\item $_{}^{\chi}\textrm{e}$：全网交易所地址的星云指数总和。
+	\item $x_{ne}$：全网非交易所地址的星云指数总和；
+	\item $x_{e}$：全网交易所地址的星云指数总和；
+	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例。
 \end{itemize}
 
 \subsubsection{通过质押星云链主网原生代币（NAS）获得NAT}
@@ -141,7 +141,7 @@ NAT是星云生态治理中的重要投票介质，在NAT的发行过程中，�
 第$i$周质押NAS获得NAT的比例为： 
 
 \begin{align}
-x NAS = \alpha \times f(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} NAT
+x \text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} \text{NAT}
 \end{align}
 
 其中：
@@ -149,10 +149,11 @@ x NAS = \alpha \times f(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} NAT
 \begin{itemize}
 	\item $x$：质押NAS的数量；
 	\item $\alpha$：质押系数，初始数值$\alpha$=5；
-	\item $f(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例；
+	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例；
 	\item $g(x)$：与$x$相关的函数，用于模拟以$x$值的NAS在星云主网获得的星云指数的情况。
 \end{itemize}
 
+\vspace{2em}
 
 \textbf{如何发起质押？} 
 	
@@ -186,18 +187,18 @@ x NAS = \alpha \times f(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} NAT
 第$i$周，参与链上投票的地址获得的激励规模为：
 
 \begin{align}
-\mu\times min(Nv, Nnr)
+\mu\times min(N_{v}, N_{nr})
 \end{align}
 
 其中：
 
 \begin{itemize}
 	\item $\mu$：激励系数，初始数值$\mu$=10；
-	\item $Nv$：当周该地址投出的NAT数额；
-	\item $Nnr$：该地址上一周的星云指数对应可获得的NAT。
+	\item $N_{v}$：当周该地址投出的NAT数额；
+	\item $N_{nr}$：该地址上一周的星云指数对应可获得的NAT。
 \end{itemize}
 
-即，当该地址当周投出的$Nv$小于或等于$Nnr$的时候，获得的激励数量为$\mu\times Nv$，当该地址当周投出的$Nv$大于$Nnr$的时候，获得的激励数量为$\mu\times Nnr$。
+即，当该地址当周投出的$N_{v}$小于或等于$N_{nr}$的时候，获得的激励数量为$\mu\times Nv$，当该地址当周投出的$N_{v}$大于$N_{nr}$的时候，获得的激励数量为$\mu\times N_{nr}$。
 
 举例来说，假如某个地址根据上一周的星云指数值获得了10 NAT的空投，该地址上一共有1,000 NAT，如果当周该地址投出了5 NAT，小于该地址上一周星云指数对应可获得的NAT数值（10 NAT），故将获得$10\times5=50$ NAT投票激励。如果该地址投出了1,000 NAT，超出10 NAT，则将获得$10\times10=100$ NAT投票激励。
 
@@ -207,7 +208,7 @@ x NAS = \alpha \times f(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} NAT
 	
 \subsubsection{投票手续费}
 
-每此投票将收取$\beta$\% NAT将作为投票手续费，此部分手续费由星云理事会授权交由基金会作为NAT项目的专项运营资金管理，项目团队不得将此部分手续费直接用于投票。初始数值$\beta$=3。
+每此投票将收取$\theta$\% NAT将作为投票手续费，此部分手续费由星云理事会授权交由基金会作为NAT项目的专项运营资金管理，项目团队不得将此部分手续费直接用于投票。初始数值$\theta$=3。
 
 \subsubsection{投票和NAT销毁}
 
@@ -260,7 +261,7 @@ NAT的发行过程涉及到如下系数：
 	\item $\alpha$：质押系数，初始数值$\alpha$=5
 	\item $\mu$：投票奖励系数，初始数值$\mu$=10
 	\item $\lambda$：递减系数，初始数值$\lambda$=0.997
-	\item $\beta$：投票手续费，初始数值$\beta$=3
+	\item $\theta$：投票手续费，初始数值$\theta$=3
 \end{enumerate}
 
 系数的调整需要经过星云生态的治理投票流程，星云基金会或NAT的项目团队无权擅自调整系数。
