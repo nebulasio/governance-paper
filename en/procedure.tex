@@ -8,7 +8,7 @@
 星云链上治理通用流程如下：
 
 \begin{enumerate}
-	\item \textbf{roposal Period}: 发起人在社区公开发起提案，在提案投票期间，如果通过了NAT链上投票，则项目立项；
+	\item \textbf{Proposal Period}: 发起人在社区公开发起提案，在提案投票期间，如果通过了NAT链上投票，则项目立项；
 	\item \textbf{Develop Period}: 项目立项，提案人本人或经本人认可的社区成员按计划执行；
 	\item \textbf{Testing Period}: 执行人提交结果，在公测投票期间，如果通过了NAT链上投票，则进入下一阶段；
 	\item \textbf{NBRE Period}: 通过了两次投票的项目，社区没有异议且经技术委员会验收核实，即可最终执行发布。
@@ -38,7 +38,7 @@
 
 投票将通过星云主网上的投票智能合约实现，每个地址可以选择投赞同、反对、弃权三种票。亦可不参与投票。
 
-\subsection{投票唯一介质：NAT}
+\subsection{The only voting medium: NAT}
 \label{nat}
 
 \subsubsection{Overview}
@@ -49,37 +49,37 @@
 	\item \textbf{Form}: NRC20 token
 \end{itemize}
 
-NAT是星云指数的资产形态，它以NRC20 Token的形式体现，并作为星云生态治理场景中唯一的投票介质。
+The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which will be embodied in the form of a NRC-20 Token and will serve as the only voting medium within the Nebulas governance ecosystem.
 
 \begin{quote}
 	\textbf{What's Nebulas Rank?}
 		
-	星云指数是首个衡量区块链多维数据的价值标准，是星云核心的排序算法。
+	Nebulas Rank (NR) is the first on-chain, native, multidimensional value measurement mechanism for blockchain data.
 
-	在星云经济体中，治理的基本单位是一个地址（参见\ref{rights}）。星云指数通过对每个地址贡献度的数学表达，量化了每个“个体”对于经济总量的贡献。星云指数分为核心星云指数和扩展星云指数（Extended Nebulas Ranks）。其中，核心星云指数受两个因素影响：
+	Within the Nebulas economy, the basic unit of governance is an “address” (\ref{rights}). Nebulas Rank quantifies the contribution of each “individual” to the economic accumulation via mathematical expression of the contribution to each address. Nebulas Rank is divided into “Core Nebulas Rank” and “Extended Nebulas Rank”. “Core Nebulas Rank” primarily refers to two factors:
 
 	\begin{enumerate}
-		\item 账户在一定时期内的资产中值；
-		\item 账户在一定时期内的出入度衡量。
+		\item The median value of the account within a certain period of time.
+		\item The degree of access to the account over a certain period of time.
 	\end{enumerate}
 
-	在宏观层面，核心星云指数使用经济学中经典的货币数量方程描述了区块链中货币数量、货币价值和流通速率以及生产力几者之间的关系。因此，全网的核心星云指数可以反映星云生态整体的流通性和活跃度。
+	At the macro level, the relationship between the number of currencies, the value of money, the rate of circulation, and productivity in the blockchain is described by the classical equation of the quantity of money in economics. The Nebulas Rank of the entire network can reflect the overall liquidity of the Nebulas ecosystem and activity.
 
 	\vspace{2em}
 
-	\textbf{NAT和星云指数的关系？}
+	\textbf{NAT and NR}
 
 	NAT的发行主要参考“核心星云指数”，是核心星云指数的资产表现，NAT发行将以周为单位，参考一周之内地址的资产中值和出入度衡量计算所得的星云指数。关于星云指数的更多信息，请参考2018年6月星云研究院发布的《星云指数黄皮书》。
 
 	\vspace{2em}
 
-	\textbf{How to check my Nebulas Rank?}
+	\textbf{How to check your Nebulas Rank?}
 
-	星云指数在2019年5月6日Nebulas NOVA~\cite{nova}完成第一次投票升级后上链，可以通过Nebulas NOVA的核心能力星云区块链可执行环境（Nebulas Blockchain Runtime Environment，NBRE）实现升级。核心星云指数开源，可在线查询~\cite{CheckNR}。
+	Nebulas Rank was on-chain when Nebulas NOVA~\cite{nova} finished the first voting on May 6, 2019, it can be updated through the core ability of Nebulas NOVA, NBRE (Nebulas Blockchain Runtime Environment). The core Nebulas Rank is open source, you can check it online~\cite{CheckNR}.
 
 \end{quote}
 
-\subsubsection{应用场景}
+\subsubsection{Use cases}
 
 NAT是星云治理中，链上投票场景的唯一介质，支持星云推进社区的治理。社区成员可以通过NAT进行链上投票表达自己对星云生态的意见，包括但不限于星云理事会的选举、星云主网通过星云区块链可执行环境（NBRE）执行星云协议表示（Nebulas Protocol Representation，NRR）、社区提案的立项、项目成果公测等。
 
@@ -89,15 +89,15 @@ NAT的发行方式和比特币类似，在总量存在上限的前提下，按�
 
 NAT协议的数量上限和星云链主网的全网星云指数值相关，释放量按周递减。递减系数为：$\lambda$。初始数值$\lambda$=0.997，即约在第180周时，发行量递减为第一周的58\%。
 
-NAT的初始发行量以2019年5月6日星云主网Nebulas NOVA完成第一次投票升级后的全网星云指数为参照。假设全网星云指数和初始参数不变，NAT初始总量上限为1,000亿枚。
+NAT的初始发行量以2019年5月6日星云主网Nebulas NOVA完成第一次投票升级后的全网星云指数为参照。Based on the current Nebulas Rank of the entire network and the current initial parameters, the upper limit of the total amount of NAT to ever exist will be 100 billion.
 
 \subsubsection{Manage NAT}
 
-用户可以在NAS nano Pro~\cite{NASnano}及其他支持NRC20的客户端中~\cite{wallets}管理自己的NAT。同时，用户可以在支持星云链的区块链浏览器~\cite{explorer}上查看NAT的交易、流通情况等。
+Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other apps which support NRC20~\cite{wallets}. At the same time, users can check the transactions and 流通情况 on the block explorer~\cite{explorer} which supports Nebulas mainnet.
 
 \subsection{Get NAT}
 
-所有拥有星云主网地址的用户均有机会获得NAT。除黑名单地址外，星云主网地址的用户可以通过提升地址的星云指数、参与星云主网链上投票，或质押NAS三种方式获得NAT。
+All users who own Nebulas mainnet addresses have chances to get NAT. Except the addresses on the black list, users own Nebulas mainnet addresses can get NAT via three ways: improve NR score of the address, take part in the Nebulas on-chain voting, and pleding NAS.
 
 \begin{quotation}
 
@@ -109,24 +109,25 @@ NAT的初始发行量以2019年5月6日星云主网Nebulas NOVA完成第一次�
 
 \end{quotation}
 
-\subsubsection{通过提升地址的星云指数获得NAT}
+\subsubsection{Receive NAT through improving NR score of the address}
 
-对于有星云指数的地址，NAT协议将按周向该地址进行发放，发放的数量将参照该地址上一周的星云指数和星云全网星云指数的情况。
+NAT tokens will be sent to the Nebulas mainnet address which has NR score on a weekly basis. 发放的数量将参照该地址上一周的星云指数和星云全网星云指数的情况。
 
-对于有星云指数的地址，每周获得空投的数量递减，递减系数为$\lambda$。初始数值$\lambda$=0.997。
+The number of tokens per week will be decremented. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
-在第$i$周，获得NAT空投的比例约为：
+In the $i$th week, the raatio is:
 
 \begin{align}
 1 \text{NR}=z(x_{ne},x_{e},\mu)\times\lambda^{i} \text{NAT}
 \end{align} 
 
-其中：
+Above Formula breakdown:
+
 \begin{itemize}
-	\item $\lambda$：衰减系数；
-	\item $\mu$：投票行为的激励参数；
-	\item $x_{ne}$：全网非交易所地址的星云指数总和；
-	\item $x_{e}$：全网交易所地址的星云指数总和；
+	\item $\lambda$: attenuation coefficient.
+	\item $\mu$: incentive parameters for voting behavior.
+	\item $x_{ne}$: the sum of the NR of non-exchange address of the entire network.
+	\item $x_{e}$: NR sum of the entire website exchange address.
 	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例。
 \end{itemize}
 
@@ -167,42 +168,48 @@ x \text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times \la
 
 用户可以通过NAS nano Pro或其他客户端调用智能合约申请取消，取消后可立即取回质押的NAS，取消质押后，则停止获得NAT空投。
 
-\subsubsection{通过参与星云链上投票获得NAT}
+\subsubsection{Receive NAT through Nebulas on-chain voting}
 
-星云主网地址获得了NAT后，可以选择参与或不参与社区治理链上投票。在此次投票周期中，如果用户参与了投票，无论投出赞成、反对还是弃权票，均可获得投票激励。如果未参与投票，则无法获得激励。
+NAT will be conducted at the beginning of every week on the Nebulas mainnet. Once addresses obtain NAT, they can choose to vote on various proposals and elections. Available voting options are “Yes,” “No,” or “Abstain” and each choice is a valid option to receive incentives. If a user does not participate in any votes during the weekly airdrop cycle, they will not receive any additional incentives the following week.
 
 \vspace{2em}
 
-\textbf{激励规模}
+\textbf{Proportion of incentives}
 
-我们认为激励的规模应该是适当的，不应该被恶意使用。投票的激励会取决于：
+The distribution and proportion of incentives should be fair and not used maliciously. To assist with these standards, the weekly NAT airdrop will look at the following:
 
 \begin{enumerate}
-	\item 该地址当周所投NAT的数量；
-	\item 该地址上一周星云指数及该星云指数对应可获得的NAT。
+	\item The number of NAT the address utilized for voting during the week.
+	\item The amount of NAT tokens to be received this week based on the address’ NR score from the previous week.
 \end{enumerate}
 
-当用户投出符合自己地址星云指数对应的NAT会得到激励，如果用户投出的NAT超过自己地址星云指数对应的NAT，超出部分将无法获得激励。
+If a person utilizes their NAT for voting, they qualify to receive a NAT reward. However, if the same address would receive the NAT airdrop due to their NR score, they would not receive both the airdrop and the additional reward. Instead, they will receive the lower amount of the two.
 	
-第$i$周，参与链上投票的地址获得的激励规模为：
+During the $i$th week, NAT incentive distribution on the maninet address, the following formula will be used:
 
 \begin{align}
 \mu\times \min\{N_{v},N_{nr}\}
 \end{align}
 
-其中：
+Above Formula breakdown:
 
 \begin{itemize}
-	\item $\mu$：激励系数，初始数值$\mu$=10；
-	\item $N_{v}$：当周该地址投出的NAT数额；
-	\item $N_{nr}$：该地址上一周的星云指数对应可获得的NAT。
+	\item $\mu$: the incentive parameters, $\mu$=10 under the initial parameters.
+	\item $N_{v}$: the amount of NAT that was sent out from the address for the week.
+	\item $N_{nr}$: how much NAT the address will receive this week based on the previous weeks Nebulas Rank score.
 \end{itemize}
 
-即，当该地址当周投出的$N_{v}$小于或等于$N_{nr}$的时候，获得的激励数量为$\mu\times Nv$，当该地址当周投出的$N_{v}$大于$N_{nr}$的时候，获得的激励数量为$\mu\times N_{nr}$。
+When $N_{v}$ (sent by the address in the week) is less than or equal to $N_{nr}$, the number of incentive NAT obtained will be $\mu\times Nv$. When the $N_{v}$ of the address is greater than $N_{nr}$, the amount incentive obtained will be $\mu\times N_{nr}$.
 
-举例来说，假如某个地址根据上一周的星云指数值获得了10 NAT的空投，该地址上一共有1,000 NAT，如果当周该地址投出了5 NAT，小于该地址上一周星云指数对应可获得的NAT数值（10 NAT），故将获得$10\times5=50$ NAT投票激励。如果该地址投出了1,000 NAT，超出10 NAT，则将获得$10\times10=100$ NAT投票激励。
+For example:
 
-和提升星云指数获得NAT及质押NAS获得NAT一样，通过投票激励获得的NAT也是按周递减的，递减系数为$\lambda$，初始数值$\lambda$=0.997。
+An address obtains 10 NAT based on its NR score from the previous week and there is a total of 1,000 NAT held within the address.
+
+This week, the address votes 5 NAT that is less than 10 NAT based on its NR score from the previous week, and in return, will receive $10\times5=50$ NAT voting incentive.
+
+If the address votes 1,000 NAT, more than 10 NAT, and in return, will receive 10\times10=100$ NAT voting incentive.
+
+Similar to the weekly NAT and the NAS pledge program, the distribution of the NAT voting incentive is also decremented weekly by the same coefficient. Under the initial parameters, $\lambda$, the coefficient is $\lambda$=0.997.
 
 \subsection{投票规则}
 	
