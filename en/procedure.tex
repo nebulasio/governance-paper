@@ -97,7 +97,7 @@ Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other apps which 
 
 \subsection{Get NAT}
 
-All users who own Nebulas mainnet addresses have chances to get NAT. Except the addresses on the black list, users own Nebulas mainnet addresses can get NAT via three ways: improve NR score of the address, take part in the Nebulas on-chain voting, and pleding NAS.
+All users who own Nebulas mainnet addresses have chances to get NAT. Except the addresses on the black list, users own Nebulas mainnet addresses can get NAT via three ways: improve NR score of the address, participate the Nebulas on-chain voting, and pleding NAS.
 
 \begin{quotation}
 
@@ -131,42 +131,42 @@ Above Formula breakdown:
 	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例。
 \end{itemize}
 
-\subsubsection{通过质押星云链主网原生代币（NAS）获得NAT}
+\subsubsection{Pledging NAS to get NAT}
 
-从2019年5月6日开始，星云主网地址用户可以选择向投票的智能合约质押星云主网原生代币星云币（NAS）获得NAT。
+Starting May 6, 2019, users of Nebulas mainnet can choose to obtain NAT by “Pledging” Nebulas native coin NAS via a smart contract.
 
-质押NAS的用户将从质押开始后的第2周（即不早于2019年5月13日）开始获得NAT的空投。如果用户取回质押的NAS，则停止获得空投。
+Users of the Pledge NAS smart contract will receive NAT beginning the second week after pledging begins (May 13, 2019). If users take back NAT, then it will stop to send NAT.
 
-质押NAS的用户每周获得空投的数量递减，递减系数为$\lambda$，初始数值$\lambda$=0.997，
+the number of airdropped tokens per week will be decremented. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
-第$i$周质押NAS获得NAT的比例为： 
+The ratio of pledge NAS to NAT during the $i$th week:
 
 \begin{align}
 x \text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times \lambda^{i} \text{NAT}
 \end{align}
 
-其中：
+Above Formula breakdown:
 
 \begin{itemize}
-	\item $x$：质押NAS的数量；
-	\item $\alpha$：质押系数，初始数值$\alpha$=5；
-	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例；
+	\item $x$: the number of pledge NAS.
+	\item $\alpha$the pledge bonus coefficient, $\alpha$=5 in the initial state.
+	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数, the exchange ratio of NR and NAT.
 	\item $g(x)$：与$x$相关的函数，用于模拟以$x$值的NAS在星云主网获得的星云指数的情况。
 \end{itemize}
 
 \vspace{2em}
 
-\textbf{如何发起质押？} 
+\textbf{How to start pledging?} 
 	
-用户可以通过使用星云钱包NAS nano Pro或其他支持NAS的客户端向投票智能合约发送交易，确认要质押NAS的数量。
+To begin a pledge, users will need to send a transaction to the voting smart contract via the Nebulas wallet NAS Nano Pro or other wallets that support the Nebulas mainnet. In return, the pledged NAS will be locked in the smart contract until the pledge is canceled by the user.
 
-为了保证用户可以获得并管理NAT，用户需要用自己掌握私钥的主网地址向星云的投票智能合约发送NAS完成质押，请勿使用交易所账户发送交易。
+In order to guarantee the acquisition of NAT, the user must send the NAS to the Nebulas smart contract address via a user controlled address which you hold the private key for. Do not send NAS to the pledge smart contract directly from a exchange or address you do not fully control.
 
 \vspace{2em}
 
-\textbf{如何取消质押？}
+\textbf{How to cancel pledging?}
 
-用户可以通过NAS nano Pro或其他客户端调用智能合约申请取消，取消后可立即取回质押的NAS，取消质押后，则停止获得NAT空投。
+If a user wants to cancel their pledge and unlock their NAS, NAS Nano Pro or other supported wallets can call the smart contract to cancel the pledge. After canceling, the pledged NAS will be unlocked and will become available to the user.
 
 \subsubsection{Receive NAT through Nebulas on-chain voting}
 
