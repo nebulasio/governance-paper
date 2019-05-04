@@ -1,44 +1,45 @@
-\section{On-chain Vote and Incentive}
+\section{On-chain Voting and Incentive}
 
-星云聚焦链上治理，致力于运用区块链技术来提供更公平的协作环境。
+Nebulas is dedicated to on-chain governance and is committed to using blockchain technology to provide a more open and collaborative environment.
 
-\subsection{链上治理流程}
+\subsection{On-chain Governance Process}
 \label{governance}
 
-星云链上治理通用流程如下：
+The general process of Nebulas on-chain governance is as followed:
 
 \begin{enumerate}
-	\item \textbf{Proposal Period}: 发起人在社区公开发起提案，在提案投票期间，如果通过了NAT链上投票，则项目立项；
-	\item \textbf{Develop Period}: 项目立项，提案人本人或经本人认可的社区成员按计划执行；
-	\item \textbf{Testing Period}: 执行人提交结果，在公测投票期间，如果通过了NAT链上投票，则进入下一阶段；
-	\item \textbf{NBRE Period}: 通过了两次投票的项目，社区没有异议且经技术委员会验收核实，即可最终执行发布。
+	\item \textbf{Proposal Period}: A project publicly submits a proposal to the community. Once submitted and if the proposal receives enough votes via the NAT governance token, the project will be established; 
+	\item \textbf{Develop Period}: Once established, the project creator or a community member approved by the creator will execute and complete the project as proposed;
+	\item \textbf{Testing Period}: Once the project is completed, the creator submits the final results. Afterwards, the results are reviewed and/or tested and voted on by the community. If approved by the community, the project will enter the next review stage;
+	\item \textbf{NBRE Period}: The Nebulas Technical Committee will complete a final review of the project and if deemed acceptable, finalize the project
 \end{enumerate}
 
-其中，“NAT链上投票”是核心手段，包括两部分：
+On-chain governance utilizes two components:
 
 \begin{enumerate}
-	\item 投票唯一介质：NAT及其底层算法是星云链上治理的重要工具；
-	\item 链上投票流程。
+	\item Voting utilizes the NAT governance token and its underlying algorithms;
+	\item The voting process is trust-less via blockchain technology.
 \end{enumerate}
 
-本章节将对其进行重点介绍。
+This section will focus on the NAT token usage
 
-\subsection{投票基本原则}
+\subsection{Basic Principles of Voting}
 
-星云生态通过星云主网实现链上投票。社区投出的每一票，将在星云链的区块上公开透明地展现。在星云链的系统中，投票将遵循以下基本原则：
+The Nebulas ecosystem integrates voting with it's mainnet blockchain. Every vote cast by community members via the mainnet is transparent and visible for all to see. Within Nebulas, voting will utilize the following basic principles:
 
 \begin{enumerate}
-	\item 投票的最基本单位是一个星云主网地址。
-	\item 星云链的投票权重将参照地址的星云指数。
-	\item 对系统有积极贡献的行为应被奖励更多的投票权，在投票的场景中，我们认为投票行为是对星云系统有积极贡献的行为，应被激励更多的投票权。
-	\item 投票唯一介质NAT是星云指数的资产化表现。
+	\item The most basic unit of voting is a Nebulas main network address.
+	\item The votes weight will refer to the address' Nebulas Rank score.
+	\item Users positive contribution to the system should be rewarded with more voting rights. We believe that voting behavior is a positive contribution to the Nebulas ecosystem and users should be motivated by receiving more voting rights.
+	\item The only medium for voting on Nebulas is the NAT asset .
 \end{enumerate}
 
-\subsection{投票方式}
+\subsection{Vote method}
 
-投票将通过星云主网上的投票智能合约实现，每个地址可以选择投赞同、反对、弃权三种票。亦可不参与投票。
+Voting will be operated through a voting smart contract on the mainnet of the Nebulas blockchain. Each address can choose one of three options: vote for, reject or abstain. Users can also choose not register a vote.
 
-\subsection{The only voting medium: NAT}
+\subsection{The only utilized voting medium: NAT}
+
 \label{nat}
 
 \subsubsection{Overview}
@@ -52,70 +53,71 @@
 The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which will be embodied in the form of a NRC-20 Token and will serve as the only voting medium within the Nebulas governance ecosystem.
 
 \begin{quote}
-	\textbf{What's Nebulas Rank?}
+	\textbf{What is Nebulas Rank?}
 		
 	Nebulas Rank (NR) is the first on-chain, native, multidimensional value measurement mechanism for blockchain data.
 
-	Within the Nebulas economy, the basic unit of governance is an “address” (\ref{rights}). Nebulas Rank quantifies the contribution of each “individual” to the economic accumulation via mathematical expression of the contribution to each address. Nebulas Rank is divided into “Core Nebulas Rank” and “Extended Nebulas Rank”. “Core Nebulas Rank” primarily refers to two factors:
+	Within the Nebulas economy, the basic unit of governance is an “address” (\ref{rights}). Nebulas Rank quantifies the contribution of each “individual” to the economic accumulation via mathematical expression of the contribution to each address. Nebulas Rank is divided into “Core Nebulas Rank” and “Extended Nebulas Rank.” “Core Nebulas Rank” primarily reflects two factors:
 
 	\begin{enumerate}
 		\item The median value of the account within a certain period of time.
-		\item The degree of access to the account over a certain period of time.
+		\item The degree of utilization of the account over a certain period of time.
 	\end{enumerate}
 
-	At the macro level, the relationship between the number of currencies, the value of money, the rate of circulation, and productivity in the blockchain is described by the classical equation of the quantity of money in economics. The Nebulas Rank of the entire network can reflect the overall liquidity of the Nebulas ecosystem and activity.
+	At the macro level, the relationship between the number of currencies, the value of money, the rate of circulation, and productivity in the blockchain is described by the classical equation of the quantity of money in economics. The Nebulas Rank of the entire network can reflect the overall liquidity of the Nebulas ecosystem and its activity.
 
 	\vspace{2em}
 
 	\textbf{NAT and NR}
 
-	NAT的发行主要参考“核心星云指数”，是核心星云指数的资产表现，NAT发行将以周为单位，参考一周之内地址的资产中值和出入度衡量计算所得的星云指数。关于星云指数的更多信息，请参考2018年6月星云研究院发布的《星云指数黄皮书》。
+	The release of NAT mainly refers to the "Core Nebulas Rank" which is the asset performance. NAT issuance will review the calculated Nebulas Rank Score weekly with reference to the median and the degree of access of the assets within the week. For more information on the Nebulas Rank Score, please refer to the Nebulas Rank Yellow Paper published by the Nebulas Institute in June, 2018.
 
 	\vspace{2em}
 
 	\textbf{How to check your Nebulas Rank?}
 
-	Nebulas Rank was on-chain when Nebulas NOVA~\cite{nova} finished the first voting on May 6, 2019, it can be updated through the core ability of Nebulas NOVA, NBRE (Nebulas Blockchain Runtime Environment). The core Nebulas Rank is open source, you can check it online~\cite{CheckNR}.
-
+Nebulas Rank via Nebulas NOVA~cite{nova} received its first upgrade on  May 6, 2019. This upgrade utilized the Nebulas Blockchain Runtime Environment (NBRE) for autonomous and instant upgrades. Users Nebulas Rank can be reviewed on-line at any time at https://nr.nebulas.io/nr/#/.
 \end{quote}
 
-\subsubsection{Use cases}
 
-NAT是星云治理中，链上投票场景的唯一介质，支持星云推进社区的治理。社区成员可以通过NAT进行链上投票表达自己对星云生态的意见，包括但不限于星云理事会的选举、星云主网通过星云区块链可执行环境（NBRE）执行星云协议表示（Nebulas Protocol Representation，NRR）、社区提案的立项、项目成果公测等。
+\subsubsection{Use cases of the Nebulas Autonomous Token (NAT)}
 
-\subsubsection{发行}
+
+NAT is the only medium within Nebulas that community members can express their opinion pertaining to governance. Community members can vote on-chain via the NAT token to decide the direction of the Nebulas ecosystem. These decisions include but are not limited to: the election of Nebulas Council members, adjustments to the Nebulas Protocol Representation(NPR) via the Nebulas Blockchain Executable Environment (NBRE), establish community proposals and for users to measure the result of projects.
+
+\subsubsection{Release}
 	
-NAT的发行方式和比特币类似，在总量存在上限的前提下，按一定周期内全网星云指数的情况，以周为单位递减释放。
+The distribution method of NAT is similar to that of Bitcoin with the premise that there is an upper limit on the total supply and the distributed supply is decremented weekly.
 
-NAT协议的数量上限和星云链主网的全网星云指数值相关，释放量按周递减。递减系数为：$\lambda$。初始数值$\lambda$=0.997，即约在第180周时，发行量递减为第一周的58\%。
+The supply upper limit of NAT tokens is related to the Nebulas Rank score of the entire mainnet network. The release amount is decremented weekly and the decremented factor is: $\lambda$. The initial value of $\lambda$=0.997; this means that by week 180, the circulation is decremented to 58\% of the first week.
 
-NAT的初始发行量以2019年5月6日星云主网Nebulas NOVA完成第一次投票升级后的全网星云指数为参照。Based on the current Nebulas Rank of the entire network and the current initial parameters, the upper limit of the total amount of NAT to ever exist will be 100 billion.
+The initial circulation of NAT is based on the status of Nebulas NOVA mainnet after the completion of it's first voting upgrade on May 6th, 2019. Based on the current Nebulas Rank of the entire network and the current initial parameters, the upper limit of the total amount of NAT to ever exist will be 100 billion.
 
-\subsubsection{Manage NAT}
+\subsubsection{Managing NAT}
 
-Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other apps which support NRC20~\cite{wallets}. At the same time, users can check the transactions and 流通情况 on the block explorer~\cite{explorer} which supports Nebulas mainnet.
+Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other wallets that support Nebulas NRC20~\cite{wallets} tokens. Users can view NAT transactions and circulation on blockchain explorers~\cite{explorer} that supports the Nebulas mainnet.
 
-\subsection{Get NAT}
+\subsection{Obtaining NAT}
 
-All users who own Nebulas mainnet addresses have chances to get NAT. Except the addresses on the black list, users own Nebulas mainnet addresses can get NAT via three ways: improve NR score of the address, participate the Nebulas on-chain voting, and pleding NAS.
+All users who control Nebulas mainnet addresses (with the exception of black listed address) have the opportunity to receive NAT. Address holders can obtain NAT via three ways: improve Nebulas Rank score of the address, participate in Nebulas on-chain voting and by pleading NAS.
 
 \begin{quotation}
 
-\textbf{NAT的黑名单地址}
+\textbf{NAT blacklisted address}
 
-在NAT的发行过程中，与星云“地址”基本权利主张（参见~\ref{rights}）任何一条产生冲突的地址将被归为黑名单地址。黑名单地址只能根据其享有的权利获得部分NAT。
+During the NAT distribution process, any address that conflicts with any of Nebulas' "address" basic rights (see ~\ref{rights}) will be classified as a blacklisted address. 
 
-例如中心化交易所的地址就被归为黑名单地址。依照星云地址第一点基本权利主张，该地址具备拥有和操作星云链上资产的权利，所以交易所的归集地址可以在同等条件下按照地址的星云指数获得NAT，但这部分NAT的产权应属于对应的交易所用户。依照星云地址第二、第三点基本权利主张，在交易所证明该归集地址充分代表了相应托管资产用户提案和投票意愿之前，交易所归集地址并不具备发起提案和参与提案投票的权利，因此亦不能通过参与投票获得投票部分的NAT激励。
+Blacklist addresses can only obtain partial NAT based on their rights. For example, the address of a centralized exchange is classified as a blacklist address. According to the first basic right of Nebulas address owners, the address has the right to own and operate the assets on Nebulas; in return, the exchange address  can obtain NAT under the same conditions according to the Nebulas Rank of the address. However, the collected property (NAT) of the exchange should be distributed to the corresponding exchange user. According to the second and third basic rights Nebulas address ownership, the exchanges collection address does not have the right to initiate a proposal or to participate in proposal vote before the exchange proves that the collection address fully represents the corresponding custody asset user proposal and voting willingness. Therefore, it is not possible to obtain a NAT incentive by participating in the voting.
 
 \end{quotation}
 
-\subsubsection{Receive NAT through improving NR score of the address}
+\subsubsection{Receive NAT by improving the NR score of an address}
 
-NAT tokens will be sent to the Nebulas mainnet address which has NR score on a weekly basis. 发放的数量将参照该地址上一周的星云指数和星云全网星云指数的情况。
+NAT tokens will be distributed to Nebulas mainnet address which have a positive NR score on a weekly basis. The number of NAT tokens distributed will be based on the weekly Nebulas Rank of the address and the Nebulas Rank of the entire network.
 
-The number of tokens per week will be decremented. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
+The number of distributed tokens will be decremented weekly. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
-In the $i$th week, the raatio is:
+In the $i$th week, the ratio is:
 
 \begin{align}
 1 \text{NR}=z(x_{ne},x_{e},\mu)\times\lambda^{i} \text{NAT}
@@ -126,18 +128,18 @@ Above Formula breakdown:
 \begin{itemize}
 	\item $\lambda$: attenuation coefficient.
 	\item $\mu$: incentive parameters for voting behavior.
-	\item $x_{ne}$: the sum of the NR of non-exchange address of the entire network.
-	\item $x_{e}$: NR sum of the entire website exchange address.
-	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数，星云指数和NAT的兑换比例。
+	\item $x_{ne}$: the sum of the NR score of non-exchange address on the entire network.
+	\item $x_{e}$: NR sum of the entire network exchange address	
+	\item $z(x_{ne},x_{e},\mu)$: function with $x_{ne}$, $x_{e}$ and $\mu$ as variables, Nebulas Rank and NAT redemption proportion.
 \end{itemize}
 
-\subsubsection{Pledging NAS to get NAT}
+\subsubsection{Pledging NAS to receiv NAT}
 
 Starting May 6, 2019, users of Nebulas mainnet can choose to obtain NAT by “Pledging” Nebulas native coin NAS via a smart contract.
 
-Users of the Pledge NAS smart contract will receive NAT beginning the second week after pledging begins (May 13, 2019). If users take back NAT, then it will stop to send NAT.
+Users of the Pledge NAS smart contract will receive NAT beginning the second week after pledging begins (May 13, 2019). If users cancel their pledge, NAT distribution will cease.
 
-the number of airdropped tokens per week will be decremented. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
+The number of airdropped tokens per week will be decremented. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
 The ratio of pledge NAS to NAT during the $i$th week:
 
@@ -148,17 +150,17 @@ x \text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times \la
 Above Formula breakdown:
 
 \begin{itemize}
-	\item $x$: the number of pledge NAS.
+	\item $x$: the number of pledged NAS.
 	\item $\alpha$the pledge bonus coefficient, $\alpha$=5 in the initial state.
-	\item $z(x_{ne},x_{e},\mu)$：以$x_{ne}$、$x_{e}$和$\mu$为变量的函数, the exchange ratio of NR and NAT.
-	\item $g(x)$：与$x$相关的函数，用于模拟以$x$值的NAS在星云主网获得的星云指数的情况。
+	\item $z(x_{ne},x_{e},\mu)$: function with $x_{ne}$, $x_{e}$, and $\mu$ as variables, the exchange ratio of NR and NAT.
+	\item $g(x)$: A function associated with $x$ that simulates the Nebulas Rank obtained by the NAS with a $x$ value on the Nebulas mainnet.
 \end{itemize}
 
 \vspace{2em}
 
 \textbf{How to start pledging?} 
 	
-To begin a pledge, users will need to send a transaction to the voting smart contract via the Nebulas wallet NAS Nano Pro or other wallets that support the Nebulas mainnet. In return, the pledged NAS will be locked in the smart contract until the pledge is canceled by the user.
+To begin a pledge, users will need to send a transaction to the voting smart contract via their Nebulas wallet such as NAS Nano Pro or other wallets that support the Nebulas mainnet. In return, the pledged NAS will be locked in the smart contract until the pledge is canceled by the user.
 
 In order to guarantee the acquisition of NAT, the user must send the NAS to the Nebulas smart contract address via a user controlled address which you hold the private key for. Do not send NAS to the pledge smart contract directly from a exchange or address you do not fully control.
 
@@ -170,7 +172,7 @@ If a user wants to cancel their pledge and unlock their NAS, NAS Nano Pro or oth
 
 \subsubsection{Receive NAT through Nebulas on-chain voting}
 
-NAT will be conducted at the beginning of every week on the Nebulas mainnet. Once addresses obtain NAT, they can choose to vote on various proposals and elections. Available voting options are “Yes,” “No,” or “Abstain” and each choice is a valid option to receive incentives. If a user does not participate in any votes during the weekly airdrop cycle, they will not receive any additional incentives the following week.
+The NAT airdrop will be conducted at the beginning of every week on the Nebulas mainnet. Once addresses obtain NAT, they can choose to vote on various proposals and elections. Available voting options are “Yes,” “No,” or “Abstain”; each choice is a valid option to receive incentives. If a user does not participate in any voting during the weekly airdrop cycle, they will not receive any additional incentives the following week.
 
 \vspace{2em}
 
@@ -180,15 +182,15 @@ The distribution and proportion of incentives should be fair and not used malici
 
 \begin{enumerate}
 	\item The number of NAT the address utilized for voting during the week.
-	\item The amount of NAT tokens to be received this week based on the address’ NR score from the previous week.
+	\item The amount of NAT tokens to be received this week based on the addresses Nebulas Rank score from the previous week.
 \end{enumerate}
 
-If a person utilizes their NAT for voting, they qualify to receive a NAT reward. However, if the same address would receive the NAT airdrop due to their NR score, they would not receive both the airdrop and the additional reward. Instead, they will receive the lower amount of the two.
+If a person utilizes their NAT for voting, they qualify to receive a NAT reward. However, if the same address would receive the NAT airdrop due to their Nebulas Rank score, they would not receive both the airdrop and the additional reward. Instead, they will receive the lower amount of the two.
 	
 During the $i$th week, NAT incentive distribution on the maninet address, the following formula will be used:
 
 \begin{align}
-\mu\times \min\{N_{v},N_{nr}\}
+\ \ times \ min \ {N_ {v}, N_ {nr} \
 \end{align}
 
 Above Formula breakdown:
@@ -207,72 +209,67 @@ An address obtains 10 NAT based on its NR score from the previous week and there
 
 This week, the address votes 5 NAT that is less than 10 NAT based on its NR score from the previous week, and in return, will receive $10\times5=50$ NAT voting incentive.
 
-If the address votes 1,000 NAT, more than 10 NAT, and in return, will receive 10\times10=100$ NAT voting incentive.
+If the address votes 1,000 NAT which is more than received the past week (10 NAT) and in return will receive 10\times10=100$ NAT voting incentive.
 
 Similar to the weekly NAT and the NAS pledge program, the distribution of the NAT voting incentive is also decremented weekly by the same coefficient. Under the initial parameters, $\lambda$, the coefficient is $\lambda$=0.997.
 
-\subsection{投票规则}
+\subsection{Voting Rules}
 	
-\subsubsection{投票手续费}
+\subsubsection{Voting Fee}
 
-每此投票将收取$\theta$\% NAT将作为投票手续费，此部分手续费由星云理事会授权交由星云基金会作为NAT项目的专项运营资金管理，项目团队不得将此部分手续费直接用于投票。初始数值$\theta$=3。
+Each vote will be charged $\theta$\% NAT as a voting fee which is authorized by the Nebulas Council to be managed by the Nebulas Foundation as a special operating fund for the NAT project. The project team will not use the collected fee directly for voting. The initial voting fee value is $\theta$=3.
 
-\subsubsection{投票和NAT销毁}
+\subsubsection{Voting and NAT Destruction}
 
-在每个发行周期内，用户投入星云链投票智能合约的NAT将被立即销毁，销毁的比例会按照周期递减，递减速率和NAT发行的递减速率一致。每个周期内销毁部分的NAT将按照NAT销毁速率函数计算，具体公式参见附录\ref{burn}。
+During each weekly release cycle, the NAT that users utilize on the Nebulas mainnet via the voting smart contract will be immediately destroyed. The proportion of destruction will be decremented according to the cycle and the deceleration rate is consistent with the deceleration rate issued by NAT.  The NAT destroyed during each cycle will be calculated according to the NAT destruction rate function as shown in the appendix ref{burn}.
 
-\subsubsection{投票通过标准}
+\subsubsection{Voting approval requirements}
 	
-投票是否通过将通过两个维度的标准来衡量：投票的参与度和赞成票的占比。
+For a proposal to be approved, the votes must meet two criteria: the degree of participation in voting and the proportion of votes in favor.
 
 \begin{enumerate}
 	\item 
 
-	\textbf{投票参与度：}
+	\textbf{Voting engagement:}
 
-	对于涉及到使用公共资产支持的提案，投票的参与度不得低于该提案提起资产占全网流通资产的比例。
+	For proposals involving the use of public asset support, voting should not be less than the proportion of assets asked for by the proposal to account for assets in circulation across the network.
 
-	如某提案要求动用X NAS支持，此时星云主网中流通的NAS（任何未在锁仓/质押状态、可随时在星云主网上进行转账交易的NAS）为Y。
+	If a proposal requires the use of X NAS, the NAS in circulation on the mainnet (any NAS that is not in the lock/pledge state and are available for immediate transfer on the mainnet) is Y.
 
-	则此提案通过需要达成的全网投票参与度不得低于X/Y，换算成NAT来表示，及参与此次投票的NAT与该周期初期空投给用户的NAT的比例不得低于X/Y。
+	Then the proposal must reach voting participation not lower than X/Y, which is converted into NAT, and the ratio of the NAT participating in the voting to the NAT that is airdropped to the user at the beginning of the cycle shall not be lower than X/Y.
 
-	对于不涉及到使用公共资产支持的提案，投票的参与度由社区共同决定，此类提案包括但不限于星云主网参数的调整、NBRE要执行的NPR等。
+	For proposals that do not involve the use of public asset support, voting participation is determined jointly by the community. Such proposals include but are not limited to: the adjustment of the mainnet parameters, the NPR to be performed by NBRE, etc.
 
 	\item
 
-	\textbf{赞成票的占比：}
+	\textbf{The proportion of votes in favor:}
 
-	在满足投票最低参与度之外，某一提案投票是否通过还需要满足赞成票占总投入票数的比例不得低于51\%。
-
-	即假设某一提案共收到票数为N，其中赞成票为Y，反对票为N，弃权票为A，则只有当Y/(Y+N+A) >= 51\%时，此提案才被视为投票通过。
+	In addition to meeting the minimum voting participation, the proportion of votes required for a particular vote to be met must not be less than 51%. That is, assuming that a proposal receives a total of N votes, of which the affirmative vote is Y, the negative vote is N and the abstention is A, the proposal is considered to have been approved on only when Y/(Y+N+A) >= 51%.
+	
 \end{enumerate}
 
-\subsection{投票监督和管理}
+\subsection{Voting Supervision and Management}
 
-\subsubsection{投票流程监督}
-\label{second-vote}
+\subsubsection{Voting Process Supervision}
+\label{Second-vote}
 
-星云技术委员会受星云理事会委任，负责监督治理流程，保证整个流程公开透明。星云社区链上公开投票由星云技术委员会负责组织和管理。
+The Nebulas Technical Committee is appointed by the Nebulas Council to oversee the governance process and to ensure that the entire process is open and transparent. Public voting on Nebulas' public chain is organized and managed by the Nebulas Technology Committee.
 
-公开投票接受社区所有成员的公开监督。针对违反星云基本权利主张的提案，星云技术委员会可以向星云理事会发起重审提案申请。星云理事会作为星云生态中治理流程正当性的监督者，有权对某一提案提起且仅能提起一次进行“\textbf{二次投票}”的要求。
+Public voting accepts public supervision from all members of the community. For proposals that violate Nebulas' Fundamental rules, the Nebulas Technical Committee may initiate a retrial proposal to the Nebulas Council. As the supervisor of the legitimacy of the governance process within the Nebulas ecosystem, the Nebula Council has the right to file a request for a "\textbf{second vote}" proposal.
 
-当理事会提出“二次投票”的要求时，该提案被视为进入到新的投票周期进行一次新的投票。第一次投票过程中的结果不被执行，第一次投票投出的NAT不予返还，会按照当周期的烧毁速率进行烧毁。
+When the Board made a request for a “second vote”, the proposal is deemed to have entered a new voting cycle for a new vote and the results of the first voting process were not executed. The NAT initially voted will not be returned and will be burned according to the burning rate of the cycle.
 
-二次投票的投票参与度需大于第一次投票的参与度。即假设第一次投票的参与度为X/Y,则第二次投票的参与度应大于X/Y,且赞成票的比例不低于51\%，方可视为投票通过。
+The voting participation of the second vote must be greater than the participation of the first vote. That is to say, if the participation degree of the first vote is X/Y, the participation degree of the second vote should be greater than X/Y, and the proportion of the votes in favor must not be less than 51%.
 
-\subsubsection{NAT参数调整}
+\subsubsection{NAT parameter adjustment}
 
-NAT的发行过程涉及到如下系数：
+The NAT distribution process involves the following factors:
 
 \begin{enumerate}
-	\item $\alpha$：质押系数，初始数值$\alpha$=5
-	\item $\mu$：投票奖励系数，初始数值$\mu$=10
-	\item $\lambda$：递减系数，初始数值$\lambda$=0.997
-	\item $\theta$：投票手续费，初始数值$\theta$=3
+	\item $\alpha$: pledge coefficient, initial value $\alpha$=5
+	\item $\mu$: voting reward factor, initial value $\mu$=10
+	\item $\lambda$: Decrement factor, initial value $\lambda$=0.997
+	\item $\theta$: voting fee, initial value $\theta$=3
 \end{enumerate}
 
-系数的调整需要经过星云生态的治理投票流程，星云基金会或NAT项目团队无权擅自调整系数。
-
-
-
-
+The adjustment of the coefficient needs to go through the governance voting process and the Nebulas Foundation or NAT project team has no right to adjust the coefficients without authorization.

@@ -1,102 +1,106 @@
 
-\section{NAT发行算法}
+\section{Nebulas Autonomous Token (NAT) ​​issuing algorithm}
 
-NAT的发行是根据每个用户的星云指数、投票行为以及质押情况决定的，没有预发行。
+The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and pledge amount.
 
 \subsection{Overview}
-NAT的发行按照星云指数的计算周期进行（注意，投票周期和星云指数周期相同），也就是说，在每个星云指数的计算周期结束，根据该星云指数计算周期每个用户的星云指数情况及投票、质押行为进行空投。
-基本来说，
-对于周期$i$，系统中新增的NAT $\mathcal{T}_i$分为三个部分，空投部分$\mathcal{A}_i$，投票激励部分$\mathcal{V}_i$，质押激励部分$\mathcal{D}_i$。
-另外，用户的投票会销毁一定的比例，假设对于周期$i$，系统中因投票减少的NAT为$\mathcal{M}_i$，则系统中总的NAT发行量为：
+The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
+
+Detailed explanation: 
+For the period $i$, the new NAT $\mathcal{T}_i$ in the system is divided into three parts: the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge Incentive: $\mathcal{D}_i$.
+In addition, the user's vote will burn/destroy a certain percentage. For example, assuming that for the cycle $i$, the NAT on the network is reduced due to voting is $\mathcal{M}_i$; then the total NAT circulation in the system is:
 \begin{align}
 \sum_{i=1}^{\infty} (\mathcal{A}_i + \mathcal{V}_i + \mathcal{D}_i - \mathcal{M}_i)
 \end{align}
 
-为方便说明，此处先给出本章涉及到的符号，并给出相应的说明，
+To help with understanding this section, all symbols used in this section and their corresponding explanations are listed below:
 \begin{itemize}
-\item $\mathcal{C}_i$:系统在周期$i$的星云指数总和；
-\item $c_{i,j}$:用户$j \in \mathcal{U}$在周期$i$的星云指数值；
-\item $d_{i,j}$:用户$j \in \mathcal{U}$在周期$i$质押的NAS总量；
-\item $v_{i,j}$:用户$j \in \mathcal{U}$在周期$i$投票的NAT总量。
+\item $\mathcal{C}_i$: The sum of the Nebulas indices for the system in the period $i$;
+\item $c_{i,j}$: User $j \in \mathcal{U}$ in the cycle $i$ Nebulas Rank Score;
+\item $d_{i,j}$: User $j \in \mathcal{U}$ The total amount of NAS pledged in the period $i$;
+\item $v_{i,j}$: User $j \in \mathcal{U}$ The total amount of NAT voted in the period $i$.
 \end{itemize}
 
-\subsection{空投部分}
-空投部分与用户的星云指数相关，即：
+\subsection{Airdrop portion}
+The airdrop portion is related to the user's Nebulas Rank score, specifically:
 \begin{align}
     f(x) = g(x)\lambda^i
 \end{align}
-\noindent 其中$x$为星云指数，可以为某个用户的星云指数；$g(x)$为调整NAT总量与星云指数总量关系的比例函数，且满足$g(0) = 0$；$\lambda$为空投衰减系数，且$\lambda < 1$。
-由于$\lambda < 1$，易知$\lim_{i\to \infty}f(x) = 0$。
+\noindent where $x$ is the Nebulas Rank score and can be a user's Nebulas Rank; $g(x)$ is a proportional function that adjusts the relationship between the total NAT and the total Nebulas Rank, and satisfies $g(0) = 0$ ;$\lambda$ is the airdrop attenuation factor, and $\lambda < 1$.
+Since $\lambda < 1$, it is easy to know $\lim_{i\to \infty}f(x) = 0$.
 
-可知，空投部分在周期$i$的新增总量为：
+It can be seen that the total amount of the airdrop portion in cycle $i$ is:
 \begin{align}
-\mathcal{A}_i = \sum_{i=1}^{\infty}f(\mathcal{C}_i)。
+\mathcal{A}_i = \sum_{i=1}^{\infty}f(\mathcal{C}_i).
 \end{align}
 
-\subsection{投票激励部分}
-投票激励部分和用户的投票行为，以及星云指数相关，对于用户$j \in \mathcal{U}$，投票激励为：
+\subsection{Voting incentives portion}
+The voting incentives are related to the user's voting behavior and their Nebulas Rank. For user $j \in \mathcal{U}$, the voting incentives are:
 \begin{align}
 \mu f(x_{i,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
 \end{align}
-\noindent 其中$\mu$为投票激励系数，$\mu > 1$，表示对用户的投票行为给予额外的奖励，可以根据系统中流通的NAS的数量变化调整。
+\noindent where $\mu$ is the voting incentive coefficient, $\mu > 1$, which means that the user's voting behavior is given an additional reward which can be adjusted according to the number of NAS circulating in the system.
 
-\subsection{质押部分}
-质押部分获得的NAT应少于使用该部分NAS提升星云指数获得的空投部分。根据星云指数的性质可知，给定NAS，其存在星云指数的上限$h(d_{i,j})$~\cite{ImproveNR}，
-则质押部分获得的NAT为：
+\subsection{Pledge NAS portion}
+The pledge portion of NAT distribution should be less than the airdrop portion obtained based on the users improved Nebulas Rank. Based on the nature of Nebulas Rank, given the users NAS, there is an upper limit of their Nebulas Rank  score $h(d_{i,j})$~\cite{ImproveNR},
+Then the NAT obtained by the pledge part is:
 \begin{align}
 \mathcal{D}_i = \sum_{i=1}^{\infty}\alpha f(h(d_{i,j}))
 \end{align}
-\noindent 其中$\alpha$为质押激励系数。
+\noindent where $\alpha$ is the pledge incentive coefficient.
 
 
-\subsection{销毁部分}
+\subsection{Destroyed/Burned NAT Portion}
 \label{burn}
-用户每次投票，都会有一部分被销毁，剩余的部分返还给用户，同时，星云理事会为了支付投票活动的必要开销，对每笔投票征收$\theta\%$的费用。因此，对每个用户而言，销毁部分为：
+Each time a user votes, a portion of their NAT is destroyed while the rest is returned to the user. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore, for each user, the destruction rate is:
 \begin{align}
 (1-\theta\%) \times \beta^i \times v_{i,j}
 \end{align}
-\noindent 其中，$\beta$为销毁系数，且$\beta < 1$。因此，
+\noindent where $\beta$ is the destruction factor and $\beta < 1$. therefore,
 \begin{align}
-    \mathcal{M}_i = \sum_{i=1}^{\infty} (1-\theta\%) \times \beta^i \times v_{i,j} 。
+    \mathcal{M}_i = \sum_{i=1}^{\infty} (1-\theta\%) \times \beta^i \times v_{i,j} .
 \end{align}
 
-\subsection{分析}
+\subsection{Analysis}
 
-注意：
+note:
 \begin{itemize}
-\item 目前版本暂定赞同票与反对票没有区别，即返还比例不同。之后可根据票种设定并乘上不同的返回参数$\mu_1$；
-\item 若考虑到投票完成后系统的总星云指数变化，则可再乘上一个系数$\mu_2$，用于反应该周期系统的繁荣度。
+\item The current version tentatively agrees that there is no difference between a vote and a negative vote, that is, the return ratio is different. It can then be set according to the ticket type and multiplied by a different return parameter $\mu_1$;
+\item If you consider the change in the total nebula index of the system after the vote is completed, you can multiply a factor of $\mu_2$ to reflect the boom of the system.
 \end{itemize}
 
 
-\begin{property}
-本算法能满足NAT总量的收敛性，即NAT总量在任何时候都不会超过一个上限。
+\begin{roperty}
+The algorithm satisfies the convergence of the total amount of NAT; in return, the total amount of NAT does not exceed the upper limit supply at any time.
 \end{property}
 \begin{proof}
-	根据《星云技术白皮书》的设定，NAS的固定总量为$10^9$，平均每周大约增发（在固定总量的基础上）$0.2\%$，故在第$n$个投票周期市面上现存NAS总量不会超过$10^9(1+0.002n)$。
+	According to the details within the Nebulas Technical White Paper, the fixed total amount of NAS is $10^9$ with an average weekly issuance amount (on the basis of a fixed total) of $0.2\%$; in return, the total amount of NAS existing on the market for the $n$ cycle will not exceed $10^9 (1+0.002n) $
 	
-	接下来我们证明所有地址一个周期内的资产中值（见《星云指数黄皮书》中的定义）总和不会超过市面上现存NAS总量。这是因为，对于任意一笔数量为$y$的NAS资产，他只能最多在一个地址内存在该周期一半以上的时间（三天半），故最多给全网节点的总资产中值提供$y$的贡献。
+	Next, we must prove that the median value of assets in one cycle of all addresses (as defined in the Nebulas Rank Yellow Paper) does not exceed the total amount of existing NAS on the market. This is because for any NAS asset with a quantity of $y$, the user can only have more than half of the period (three and a half days) in one address, so it can provide the total asset value of the entire network node. Contribution of $y$.
 	
-	同样根据星云指数黄皮书的设定，任何一个地址的星云指数值不会超过该地址的资产中值（指同样一个周期内，注意星云指数和NAT的计算都是以周为单位，具有同步性），这是因为黄皮书星云指数计算公式$\Omega(\cdot)\Psi(\cdot)$中，以资产中值为输入的Wilbur函数$\Omega(\cdot)$满足$\Omega(x)\leq x$，且出入度函数$\Psi(\cdot)$值域不超过1。
+	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank value of any single address can not not exceed the median asset value of that address (for the same period; note that Nebulas Rank and NAT calculations are weekly and synchronized). because theNebula Rank Yellow Paper formula $Omega (CDOT) Psi(Cdot) $, the Wilbur function $Omega (CDOT), which is entered in the asset value, satisfies $Omega (x) leq x$, and the Access function $Psi (CDOT) $ value does not exceed 1.
 	
-	结合上述结论，可得在第$n$个周期，所有地址星云指数总和不超过$10^9(1+0.002n)$，从而NAT空投部分不超过$g(10^9(1+0.002n))\lambda^n$。
+	Combined with the above conclusions, in the $n$ cycle, the sum of all Nebulas Rank addresses does not exceed $10^9(1+0.002n)$, so that the NAT airdrop portion does not exceed $g (10^9(1+0.002n)) )\lambda^n$.
 	
-	又因为投票激励部分的NAT不超过增发部分乘以$\mu$，故即使加上返还部分带来的增量，周期$n$内NAT的总增量超过$\mu g(10^9(1+0.002n))\lambda^n$。另外，质押部分带来的增量不超过NAS总量$g(10^9(1+0.002n))\lambda^n$。
+	Also, since the NAT of the voting incentive portion does not exceed the additional portion multiplied by $\mu$, even if the increment caused by the return part is added, the total increment of NAT in the period $n$ exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increase in the pledge portion does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
 	
-	最后，欲证NAT总量的收敛性，因为空投部分，质押部分和激励部分均随时间指数级衰减，故只需证明级数：
+	Finally, to prove the convergence of the total amount of NAT; because of the airdrop portion, the pledge portion and the incentive portion are exponentially decayed with time, it is only necessary to prove the series:
 	\begin{align}
 	\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n
 	\end{align}
-	收敛，由于$g(\cdot)$为线性函数，故
+	Convergence, since $g(\cdot)$ is a linear function,
 	\begin{align}
-	\lim_{n\rightarrow \infty} \frac{\mu g(10^9(1+0.002(n+1)))\lambda^{n+1}}{\mu g(10^9(1+0.002n))\lambda^n} = \lambda <1
+	\lim_{n\rightarrow \infty} \frac{\mu g(10^9(1+0.002(n+1)))\lambda^{n+1}}{\mu g(10^9(1+ 0.002n))\lambda^n} = \lambda <1
 	\end{align}
-	由比试判别法可得该级数收敛，证毕。
+	The comparison of the series can be obtained by the comparison method.
 \end{proof}
-同时，上述投票算法具有下列良好性质。
+
+The series can be convergent and verified by the comparison method.
+\end{proof}
+At the same time, the above voting algorithm has the following positive properties.
 \begin{enumerate}
-	\item \textbf{抗滚雪球效应：} 如若简单的按固定比例返还NAT，则一个用户可以每次投出所有的NAT并享受大于1比例的返还（如1.1）,则其总NAT将按$1.1^n$指数级上升，增长过于庞大。
-	\item \textbf{抗收买性：} 若一个低星云指数的用户以购买的方式获取大量NAT并用于投票，由于对低星云指数用户我们设定的对应$x_{i-1}^j$较低，返还的NAT很少，大部分都被烧毁，导致该用户剩余NAT很少作为惩罚。
-	\item \textbf{抗通货膨胀：} 由于系统增发NAT比例与当前市场NAT总量有关，可有效控制NAT的贬值。
-	\item \textbf{头部效应：} 早期拥有高星云指数的用户能拥有更高NAT总量。
+	\item \textbf{Anti-snowball effect:} If you simply return NAT at a fixed ratio, a user can utilize all their NAT and enjoy a return greater than 1 (such as 1.1); then the total NAT will be $1.1^ The n$ has risen and the growth is too large.
+	\item \textbf{Anti-buying:} If a user with a low Nebulas Rank obtains a large quantity of NAT and uses it for voting, because of the corresponding $x_{i-1}^j$ for addresses with a low Nebulas Rank score, there are very few NAT tokens returned resulting in most of them being burned. This causes the user's remaining NAT to be penalized.
+	\item \textbf{Anti-inflation:} The depreciation of NAT can be effectively controlled because the distribution of additional NAT is related to the total amount of NAT in the current market.
+	\item \textbf{Head-effect:} Users with a High Nebulas Rank during the early stages can have a higher total NAT quantity.
 \end{enumerate}
