@@ -1,5 +1,4 @@
-
-\section{Nebulas Autonomous Token (NAT) ​​issuing algorithm}
+\section{Nebulas Autonomous Token (NAT) ​​issuance algorithm}
 
 The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and pledge amount.
 
@@ -7,8 +6,8 @@ The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and p
 The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
 
 Detailed explanation: 
-For the period $i$, the new NAT $\mathcal{T}_i$ in the system is divided into three parts: the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge Incentive: $\mathcal{D}_i$.
-In addition, the user's vote will burn/destroy a certain percentage. For example, assuming that for the cycle $i$, the NAT on the network is reduced due to voting is $\mathcal{M}_i$; then the total NAT circulation in the system is:
+For the period $i$, the new NAT $\mathcal{T}_i$ in the system is divided into three parts - the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge incentive: $\mathcal{D}_i$.
+In addition, user's votes will burn/destroy a certain percentage. For example, assuming that for the cycle $i$, the NAT on the network is reduced due to voting is $\mathcal{M}_i$; then the total NAT circulation in the system is:
 \begin{align}
 \sum_{i=1}^{\infty} (\mathcal{A}_i + \mathcal{V}_i + \mathcal{D}_i - \mathcal{M}_i)
 \end{align}
@@ -26,7 +25,7 @@ The airdrop portion is related to the user's Nebulas Rank score, specifically:
 \begin{align}
     f(x) = g(x)\lambda^i
 \end{align}
-\noindent where $x$ is the Nebulas Rank score and can be a user's Nebulas Rank; $g(x)$ is a proportional function that adjusts the relationship between the total NAT and the total Nebulas Rank, and satisfies $g(0) = 0$ ;$\lambda$ is the airdrop attenuation factor, and $\lambda < 1$.
+\noindent where $x$ is the Nebulas Rank score and can be a user's Nebulas Rank; $g(x)$ is a proportional function that adjusts the relationship between the total NAT and the total Nebulas Rank and satisfies $g(0) = 0$ ;$\lambda$ is the airdrop attenuation factor, and $\lambda < 1$.
 Since $\lambda < 1$, it is easy to know $\lim_{i\to \infty}f(x) = 0$.
 
 It can be seen that the total amount of the airdrop portion in cycle $i$ is:
@@ -52,7 +51,7 @@ Then the NAT obtained by the pledge part is:
 
 \subsection{Destroyed/Burned NAT Portion}
 \label{burn}
-Each time a user votes, a portion of their NAT is destroyed while the rest is returned to the user. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore, for each user, the destruction rate is:
+Each time a user votes, a portion of their NAT is destroyed while the rest is returned to the user. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, the destruction rate is:
 \begin{align}
 (1-\theta\%) \times \beta^i \times v_{i,j}
 \end{align}
@@ -66,7 +65,7 @@ Each time a user votes, a portion of their NAT is destroyed while the rest is re
 note:
 \begin{itemize}
 \item The current version tentatively agrees that there is no difference between a vote and a negative vote, that is, the return ratio is different. It can then be set according to the ticket type and multiplied by a different return parameter $\mu_1$;
-\item If you consider the change in the total nebula index of the system after the vote is completed, you can multiply a factor of $\mu_2$ to reflect the boom of the system.
+\item If you consider the change in the total Nebulas Rank of the system after the vote is completed, you can multiply a factor of $\mu_2$ to reflect the status of the system.
 \end{itemize}
 
 
