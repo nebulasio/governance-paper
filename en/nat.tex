@@ -5,7 +5,7 @@ The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and p
 \subsection{Overview}
 The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
 
-Detailed explanation: 
+Detailed explanation:
 For the period $i$, the new NATs $\mathcal{T}_i$ in the system is divided into three parts - the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge incentive: $\mathcal{D}_i$.
 In addition, NATs used for voting will be burned/destroyed with respect to certain percentage. Assuming that for the cycle $i$, the reduced amount of NATs on the network (due to voting) is $\mathcal{M}_i$, then the total amount of NATs in the system is:
 \begin{align}
@@ -21,7 +21,7 @@ For convenience, all symbols used in this section and their corresponding explan
 \end{itemize}
 
 \subsection{Airdrop part}
-The airdrop part is related to the user's Nebulas Rank score, defined by 
+The airdrop part is related to the user's Nebulas Rank score, defined by
 \begin{align}
     f(x) = g(x)\lambda^i
 \end{align}
@@ -75,15 +75,21 @@ note:
 
 \begin{proof}
 	According to the details within the Nebulas Technical White Paper, the fixed total amount of NAS is $10^9$ with an average weekly issuance amount (on the basis of the fixed total) of $0.2\%$; in return, the total amount of NAS existing on the market for the $n$ cycle will not exceed $10^9 (1+0.002n) $
-	
+
 	Next, we prove that the sum of all median values of assets of all addresses in one cycle (as defined in the Nebulas Rank Yellow Paper) does not exceed the total amount of existing NAS on the market. This is because for any NAS asset with quantity $y$,it can appear for half of the period (three and a half days) in only one address, so it can at most contribute $y$ to the sum of all median values of assets of all addresses.
-	
-	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank score of any single address can not not exceed the median value of assets of that address (for the same period; note that Nebulas Rank and NAT calculations are weekly and synchronized). That is because in the formula $Omega(CDOT)Psi(Cdot)$ for calculating the Nebulas Rank, the Wilbur function $Omega(CDOT)$, whose input is the median value of the asset, satisfies $Omega (x) leq x$, and the value of the in-and-out function $Psi(CDOT)$ does not exceed 1.
-	
+
+	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank score of any
+	single address can not not exceed the median value of assets of that address
+	(for the same period; note that Nebulas Rank and NAT calculations are weekly
+	and synchronized). That is because in the formula $\Omega(\cdot)\Psi(\cdot)$
+	for calculating the Nebulas Rank, the Wilbur function $\Omega(\cdot)$, whose
+	input is the median value of the asset, satisfies $\Omega (x) \leq x$, and
+	the value of the in-and-out function $\Psi(\cdot)$ does not exceed 1.
+
 	Combined with conclusions above, in cycle $n$, the sum of Nebulas Rank scores of all addresses does not exceed $10^9(1+0.002n)$, so that the NAT airdrop part does not exceed $g(10^9(1+0.002n)))\lambda^n$.
-	
+
 	Also, since the NAT of the voting incentive part does not exceed the airdrop part multiplied by $\mu$, even if the returned NATs from voting is added, the total increment of NAT in voting incentive part in cycle $n$ does not exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increment NAT from the pledge port does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
-	
+
 	Finally, to prove the convergence of the total amount of NAT, since NATS  from the airdrop part, the pledge part and the incentive part are exponentially decayed with time, it is only necessary to prove the series
 	\begin{align}
 	\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n
@@ -99,7 +105,7 @@ The series can be convergent and verified by the comparison method.
 
 Moreover, the above voting algorithm has the following positive properties.
 \begin{enumerate}
-	\item \textbf{Anti-snowball effect:} If we always return NATs  with respect to fixed ratio, a user can vote all his  NAT to enjoy a return ratio greater than 1 (such as 1.1); then his total amount of  NATs will be exponentially increasing, as  $1.1^n$ 
+	\item \textbf{Anti-snowball effect:} If we always return NATs  with respect to fixed ratio, a user can vote all his  NAT to enjoy a return ratio greater than 1 (such as 1.1); then his total amount of  NATs will be exponentially increasing, as  $1.1^n$
 	\item \textbf{Anti-bribe:} If a user with a low Nebulas Rank buys a large amount of NAT to vote, since the corresponding $x_{i-1}^j$ are small for addresses with a low Nebulas Rank score, very few NATs are returned while most of them are burned. It causes the user loses many NATs as penalization.
 	\item \textbf{Anti-inflation:} The depreciation of NAT can be effectively controlled because the issuance of NATs is related to the total amount of NAT in the current market.
 	\item \textbf{Head-effect:} A user with a high Nebulas Rank during the early stages can have a higher total amount of NATs.
