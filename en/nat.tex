@@ -68,18 +68,18 @@ note:
 \item If you consider the change in the total Nebulas Rank of the system after the vote is completed, you can multiply a factor of $\mu_2$ to reflect the status of the system.
 \end{itemize}
 
-
-\begin{roperty}
-The algorithm satisfies the convergence of the total amount of NAT; in return, the total amount of NAT does not exceed the upper limit supply at any time.
+\begin{property}
+	The algorithm satisfies the convergence of the total amount of NAT; in return, the total amount of NAT does not exceed the upper limit supply at any time.
 \end{property}
+
 \begin{proof}
 	According to the details within the Nebulas Technical White Paper, the fixed total amount of NAS is $10^9$ with an average weekly issuance amount (on the basis of a fixed total) of $0.2\%$; in return, the total amount of NAS existing on the market for the $n$ cycle will not exceed $10^9 (1+0.002n) $
 	
 	Next, we must prove that the median value of assets in one cycle of all addresses (as defined in the Nebulas Rank Yellow Paper) does not exceed the total amount of existing NAS on the market. This is because for any NAS asset with a quantity of $y$, the user can only have more than half of the period (three and a half days) in one address, so it can provide the total asset value of the entire network node. Contribution of $y$.
 	
-	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank value of any single address can not not exceed the median asset value of that address (for the same period; note that Nebulas Rank and NAT calculations are weekly and synchronized). because theNebula Rank Yellow Paper formula $Omega (CDOT) Psi(Cdot) $, the Wilbur function $Omega (CDOT), which is entered in the asset value, satisfies $Omega (x) leq x$, and the Access function $Psi (CDOT) $ value does not exceed 1.
+	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank value of any single address can not not exceed the median asset value of that address (for the same period; note that Nebulas Rank and NAT calculations are weekly and synchronized). because theNebula Rank Yellow Paper formula $Omega(CDOT)Psi(Cdot)$, the Wilbur function $Omega(CDOT)$, which is entered in the asset value, satisfies $Omega (x) leq x$, and the Access function $Psi(CDOT)$ value does not exceed 1.
 	
-	Combined with the above conclusions, in the $n$ cycle, the sum of all Nebulas Rank addresses does not exceed $10^9(1+0.002n)$, so that the NAT airdrop portion does not exceed $g (10^9(1+0.002n)) )\lambda^n$.
+	Combined with the above conclusions, in the $n$ cycle, the sum of all Nebulas Rank addresses does not exceed $10^9(1+0.002n)$, so that the NAT airdrop portion does not exceed $g(10^9(1+0.002n)))\lambda^n$.
 	
 	Also, since the NAT of the voting incentive portion does not exceed the additional portion multiplied by $\mu$, even if the increment caused by the return part is added, the total increment of NAT in the period $n$ exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increase in the pledge portion does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
 	
@@ -95,7 +95,7 @@ The algorithm satisfies the convergence of the total amount of NAT; in return, t
 \end{proof}
 
 The series can be convergent and verified by the comparison method.
-\end{proof}
+
 At the same time, the above voting algorithm has the following positive properties.
 \begin{enumerate}
 	\item \textbf{Anti-snowball effect:} If you simply return NAT at a fixed ratio, a user can utilize all their NAT and enjoy a return greater than 1 (such as 1.1); then the total NAT will be $1.1^ The n$ has risen and the growth is too large.
