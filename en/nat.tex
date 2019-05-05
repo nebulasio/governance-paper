@@ -3,7 +3,7 @@
 The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and pledge amount.
 
 \subsection{Overview}
-The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
+The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous weeks Nebulas Rank score.
 
 Detailed explanation: 
 For the period $i$, the new NAT $\mathcal{T}_i$ in the system is divided into three parts - the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge incentive: $\mathcal{D}_i$.
@@ -51,7 +51,9 @@ Then the NAT obtained by the pledge part is:
 
 \subsection{Destroyed/Burned NAT Portion}
 \label{burn}
-Each time a user votes, a portion of their NAT is destroyed while the rest is returned to the user. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, the destruction rate is:
+Each time a address votes using NAT, all NAT used is immediately burned and is no longer usable. However, NAS is distributed by 3 methods; as explained earlier, they are: Airdrop based on Nebulas Rank, Pledge NAS to obtain NAS and NAT incentive for participating in voting. Therefore, we can state that while NAT is burned, NAT is also redistributed to the network weekly and has a network burn rate. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. 
+
+Therefore for each user, the destruction rate is:
 \begin{align}
 (1-\theta\%) \times \beta^i \times v_{i,j}
 \end{align}
