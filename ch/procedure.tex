@@ -186,13 +186,14 @@ x \text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times \la
 第$i$周，参与链上投票的地址获得的激励规模为：
 
 \begin{align}
-\mu\times \min\{N_{v},N_{nr}\}
+\mu\times \min\{N_{v},N_{nr}\}  \times \lambda^{i}
 \end{align}
 
 其中：
 
 \begin{itemize}
 	\item $\mu$：激励系数，初始数值$\mu$=10；
+	\item $\lambda$：递减系数，初始数值$\lambda$=0.997；
 	\item $N_{v}$：当周该地址投出的NAT数额；
 	\item $N_{nr}$：该地址上一周的星云指数对应可获得的NAT。
 \end{itemize}

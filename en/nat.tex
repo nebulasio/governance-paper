@@ -3,10 +3,10 @@
 The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and pledge amount.
 
 \subsection{Overview}
-The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT airdrop is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
+The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, the NAT distribution is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
 
 Detailed explanation:
-For the period $i$, the new NATs $\mathcal{T}_i$ in the system is divided into three parts - the airdrop: $\mathcal{A}_i$, the voting incentive: $\mathcal{V}_i$, the pledge incentive: $\mathcal{D}_i$.
+For the period $i$, the new NATs $\mathcal{T}_i$ in the system is divided into three parts - the NR part: $\mathcal{A}_i$, the voting incentives part: $\mathcal{V}_i$, the pledge part: $\mathcal{D}_i$.
 In addition, NATs used for voting will be burned/destroyed with respect to certain percentage. Assuming that for the cycle $i$, the reduced amount of NATs on the network (due to voting) is $\mathcal{M}_i$, then the total amount of NATs in the system is:
 \begin{align}
 \sum_{i=1}^{\infty} (\mathcal{A}_i + \mathcal{V}_i + \mathcal{D}_i - \mathcal{M}_i)
@@ -20,15 +20,15 @@ For convenience, all symbols used in this section and their corresponding explan
 \item $v_{i,j}$: User $j \in \mathcal{U}$ 's total amount of voted NATs in cycle $i$.
 \end{itemize}
 
-\subsection{Airdrop part}
-The airdrop part is related to the user's Nebulas Rank score, defined by
+\subsection{NR part}
+This part is related to the user's Nebulas Rank score, defined by
 \begin{align}
     f(x) = g(x)\lambda^i
 \end{align}
-\noindent where $x$ is the user's Nebulas Rank score; $g(x)$ is a proportional function that adjusts the relationship between NAT and the Nebulas Rank and satisfies $g(0) = 0$ ;$\lambda$ is the airdrop attenuation factor, and $\lambda < 1$.
+\noindent where $x$ is the user's Nebulas Rank score; $g(x)$ is a proportional function that adjusts the relationship between NAT and the Nebulas Rank and satisfies $g(0) = 0$ ;$\lambda$ is the attenuation coefficient, and $\lambda < 1$.
 Since $\lambda < 1$, it is easy to know $\lim_{i\to \infty}f(x) = 0$.
 
-The total amount of the airdrop part  in cycle $i$ is:
+The total amount of this part  in cycle $i$ is:
 \begin{align}
 \mathcal{A}_i = \sum_{i=1}^{\infty}f(\mathcal{C}_i).
 \end{align}
@@ -41,7 +41,7 @@ The voting incentives part are related to users' voting behaviors and their Nebu
 \noindent where $\mu$ is the voting incentive coefficient, $\mu > 1$, which means that the user's voting behavior is encouraged by additional rewards, which can be adjusted according to the amount of circulating NAS in the system.
 
 \subsection{Pledge part}
-The pledge part of NATs should be related to the airdrop part obtained based on the users‘ improved Nebulas Rank. Based on the property of Nebulas Rank, for a given amout of a user's NAS, there is an upper bound of his Nebulas Rank score $h(d_{i,j})$~\cite{ImproveNR},
+The pledge part of NATs should be related to the NR part obtained based on the users‘ improved Nebulas Rank. Based on the property of Nebulas Rank, for a given amout of a user's NAS, there is an upper bound of his Nebulas Rank score $h(d_{i,j})$~\cite{ImproveNR},
 
 So, we define the NAT obtained by the pledge part to be:
 \begin{align}
@@ -52,7 +52,7 @@ So, we define the NAT obtained by the pledge part to be:
 
 \subsection{Destroyed/Burned Part}
 \label{burn}
-Each time a address votes using NAT, all NAT used is immediately burned and is no longer usable. However, NAS is distributed by 3 methods; as explained earlier, they are: Airdrop based on Nebulas Rank, Pledge NAS to obtain NAS and NAT incentive for participating in voting. Therefore, we can state that while NAT is burned, NAT is also redistributed to the network weekly and has a network burn rate. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, define the destroyed part to be\begin{align}
+Each time a address votes using NAT, all NAT used is immediately burned and is no longer usable. However, NAS is distributed by 3 methods; as explained earlier, they are: NR part, voting incentives part, and pledge part. Therefore, we can state that while NAT is burned, NAT is also redistributed to the network weekly and has a network burn rate. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, define the destroyed part to be\begin{align}
 (1-\theta\%) \times \beta^i \times v_{i,j}
 \end{align}
 \noindent where $\beta$ is the destruction coefficient and $\beta < 1$. therefore,
@@ -85,11 +85,11 @@ note:
 	input is the median value of the asset, satisfies $\Omega (x) \leq x$, and
 	the value of the in-and-out function $\Psi(\cdot)$ does not exceed 1.
 
-	Combined with conclusions above, in cycle $n$, the sum of Nebulas Rank scores of all addresses does not exceed $10^9(1+0.002n)$, so that the NAT airdrop part does not exceed $g(10^9(1+0.002n)))\lambda^n$.
+	Combined with conclusions above, in cycle $n$, the sum of Nebulas Rank scores of all addresses does not exceed $10^9(1+0.002n)$, so that the NR part does not exceed $g(10^9(1+0.002n)))\lambda^n$.
 
-	Also, since the NAT of the voting incentive part does not exceed the airdrop part multiplied by $\mu$, even if the returned NATs from voting is added, the total increment of NAT in voting incentive part in cycle $n$ does not exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increment NAT from the pledge port does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
+	Also, since the NAT of the voting incentive part does not exceed the NR part multiplied by $\mu$, even if the returned NATs from voting is added, the total increment of NAT in voting incentive part in cycle $n$ does not exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increment NAT from the pledge port does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
 
-	Finally, to prove the convergence of the total amount of NAT, since NATS  from the airdrop part, the pledge part and the incentive part are exponentially decayed with time, it is only necessary to prove the series
+	Finally, to prove the convergence of the total amount of NAT, since NATS  from the NR part, the pledge part and the incentive part are exponentially decayed with time, it is only necessary to prove the series
 	\begin{align}
 	\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n
 	\end{align}
