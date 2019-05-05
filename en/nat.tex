@@ -52,8 +52,7 @@ So, we define the NAT obtained by the pledge part to be:
 
 \subsection{Destroyed/Burned Part}
 \label{burn}
-Each time a user votes, a portion of their NATs is destroyed while the rest is returned to the user. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, define the destroyed part to be
-\begin{align}
+Each time a address votes using NAT, all NAT used is immediately burned and is no longer usable. However, NAS is distributed by 3 methods; as explained earlier, they are: Airdrop based on Nebulas Rank, Pledge NAS to obtain NAS and NAT incentive for participating in voting. Therefore, we can state that while NAT is burned, NAT is also redistributed to the network weekly and has a network burn rate. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, define the destroyed part to be\begin{align}
 (1-\theta\%) \times \beta^i \times v_{i,j}
 \end{align}
 \noindent where $\beta$ is the destruction coefficient and $\beta < 1$. therefore,
