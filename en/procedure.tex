@@ -1,8 +1,8 @@
-\section{On-chain Voting and Incentive}
+\section{On-chain voting and incentive}
 
 Nebulas is dedicated to on-chain governance and is committed to using blockchain technology to provide a more open and collaborative environment.
 
-\subsection{On-chain Governance Process}
+\subsection{On-chain governance process}
 \label{governance}
 
 The general process of Nebulas' on-chain governance is as followed:
@@ -21,17 +21,17 @@ On-chain governance utilizes two components:
 	\item The voting process is trust-less via blockchain technology.
 \end{enumerate}
 
-Exploring NAT token usage
+This Orange Paper will introduce the on-chain governance mainly.
 
-\subsection{Basic Principles of Voting}
+\subsection{Basic principles of voting}
 
 The Nebulas ecosystem integrates voting with it's mainnet blockchain. Every vote cast by community members is transparent and visible for all to see. Within Nebulas, voting will utilize the following basic principles:
 
 \begin{enumerate}
-	\item The most basic unit of voting is a Nebulas main network address.
+	\item The most basic unit of voting is a Nebulas mainnet address.
 	\item The votes weight will refer to the address' Nebulas Rank score as embodied in the NAT token.
-	\item Users positive contribution to the system should be rewarded with more voting rights. We believe that voting  is a positive contribution to the Nebulas ecosystem and users should be motivated by receiving more voting rights.
-	\item The only medium for voting on Nebulas is the NAT asset .
+	\item Users positive contribution to the system should be rewarded with more voting rights. We believe that voting is a positive contribution to the Nebulas ecosystem and users should be motivated by receiving more voting rights.
+	\item The only medium for voting on Nebulas is the NAT asset.
 \end{enumerate}
 
 \subsection{Voting method}
@@ -50,14 +50,14 @@ Voting will be operated through a voting smart contract on the mainnet of the Ne
 	\item \textbf{Form}: NRC20 token
 \end{itemize}
 
-The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which will be embodied in the form of a NRC-20 Token and will serve as the only voting medium within the Nebulas governance ecosystem.
+The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which will be embodied in the form of a NRC-20 token and will serve as the only voting medium within the Nebulas governance ecosystem.
 
 \begin{quote}
 	\textbf{What is Nebulas Rank?}
 		
 	Nebulas Rank (NR) is the first on-chain, native, multidimensional value measurement mechanism for blockchain data.
 
-	Within the Nebulas economy, the basic unit of governance is an “address” (\ref{rights}). Nebulas Rank quantifies the contribution of each “individual” to the economic accumulation via mathematical expression of the contribution to each address. Nebulas Rank is divided into “Core Nebulas Rank” and “Extended Nebulas Rank.” “Core Nebulas Rank” primarily reflects two factors:
+	Within the Nebulas economy, the basic unit of governance is an "address" (\ref{rights}). Nebulas Rank quantifies the contribution of each "individual" to the economic accumulation via mathematical expression of the contribution to each address. Nebulas Rank is divided into "Core Nebulas Rank" and "Extended Nebulas Rank". Core Nebulas Rank primarily reflects two factors:
 
 	\begin{enumerate}
 		\item The median value of the account within a certain period of time.
@@ -70,13 +70,13 @@ The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which 
 
 	\textbf{NAT and NR}
 
-	The release of NAT mainly refers to the "Core Nebulas Rank" which is the asset performance. NAT issuance will review the calculated Nebulas Rank Score weekly with reference to the median and the degree of utilization of the assets within the week. For more information on the Nebulas Rank Score, please refer to the Nebulas Rank Yellow Paper published by the Nebulas Institute in June, 2018.
+	The release of NAT mainly refers to the "Core Nebulas Rank" which is the asset performance. NAT issuance will review the calculated Nebulas Rank score weekly with reference to the median and the degree of utilization of the assets within the week. For more information on the Nebulas Rank Score, please refer to the \textit{Yellow Paper - Nebulas Rank} published by the Nebulas Research Institute in June, 2018.
 
 	\vspace{2em}
 
 	\textbf{How to check your Nebulas Rank?}
 
-Nebulas Rank via Nebulas NOVA~\cite{nova} received its first upgrade on May 6, 2019. This upgrade utilized the Nebulas Blockchain Runtime Environment (NBRE) for autonomous and instant upgrades. Users Nebulas Rank can be reviewed on-line at any time either within the blockchain~\cite{explorer}.
+Nebulas Rank via Nebulas NOVA~\cite{nova} received its first upgrade on May 6, 2019. This upgrade utilized the Nebulas Blockchain Runtime Environment (NBRE) for autonomous and instant upgrades. Users Nebulas Rank can be reviewed on-line at any time either within the blockchain~\cite{CheckNR}.
 \end{quote}
 
 
@@ -89,7 +89,7 @@ NAT is the only medium within Nebulas that community members can express their o
 	
 The distribution method of NAT is similar to that of Bitcoin with the premise that there is an upper limit on the total supply and the distributed supply is decremented weekly.
 
-The supply upper limit of NAT tokens is related to the Nebulas Rank score of the entire mainnet network. The release amount is decremented weekly and the decremented factor is: $\lambda$. The initial value of $\lambda$=0.997; this means that by week 180, the circulation is decremented to 58\% of the first week.
+The supply upper limit of NAT tokens is related to the Nebulas Rank score of the entire Nebulas mainnet. The release amount is decremented weekly and the decremented factor is: $\lambda$. The initial value of $\lambda$=0.997; this means that by week 180, the circulation is decremented to 58\% of the first week.
 
 The initial circulation of NAT is based on the status of Nebulas NOVA mainnet after the completion of it's first voting upgrade on May 6th, 2019. Based on the current Nebulas Rank of the entire network and initial parameters, the upper limit of the total amount of NAT to ever exist will be 100 billion.
 
@@ -111,9 +111,9 @@ Blacklist addresses can only obtain partial NAT based on their rights. For examp
 
 \end{quotation}
 
-\subsubsection{Receive NAT by improving the NR score of an address}
+\subsubsection{Receive NAT by improving the Nebulas Rank score of an address}
 
-NAT tokens will be distributed to Nebulas mainnet address which have a positive NR score on a weekly basis. The number of NAT tokens distributed will be based on the weekly Nebulas Rank of the address and the Nebulas Rank of the entire network.
+NAT tokens will be distributed to Nebulas mainnet address which have a positive NR score on a weekly basis. The number of NAT tokens distributed will be based on the weekly Nebulas Rank of the address and the Nebulas Rank of the entire mainnet.
 
 The number of distributed tokens will be decremented weekly. The decreasing coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
@@ -128,14 +128,14 @@ Above Formula breakdown:
 \begin{itemize}
 	\item $\lambda$: attenuation coefficient.
 	\item $\mu$: incentive parameters for voting behavior.
-	\item $x_{ne}$: the sum of the NR score of non-exchange address on the entire network.
-	\item $x_{e}$: NR sum of the entire network	
+	\item $x_{ne}$: the sum of the NR score of non-exchange address on the entire mainnet.
+	\item $x_{e}$: NR sum of the entire mainnet.
 	\item $z(x_{ne},x_{e},\mu)$: function with $x_{ne}$, $x_{e}$ and $\mu$ as variables, Nebulas Rank and NAT redemption proportion.
 \end{itemize}
 
 \subsubsection{Pledging NAS to receive NAT}
 
-Starting May 6, 2019, users of Nebulas mainnet can choose to obtain NAT by “Pledging” Nebulas native coin NAS via a smart contract.
+Starting May 6, 2019, users of Nebulas mainnet can choose to obtain NAT by "Pledging" Nebulas native coin NAS via a smart contract.
 
 Users of the Pledge NAS smart contract will receive NAT beginning the second week after pledging begins (May 13, 2019). If users cancel their pledge, NAT distribution will cease.
 
@@ -172,7 +172,7 @@ If a user wants to cancel their pledge and unlock their NAS, NAS nano Pro or oth
 
 \subsubsection{Receive NAT through Nebulas on-chain voting}
 
-The NAT airdrop will be conducted at the beginning of every week on the Nebulas mainnet. Once addresses obtain NAT, they can choose to vote on various proposals and elections. Available voting options are “For,” “Against,” or “Abstain”; each choice is a valid option to receive incentives. If a user does not participate in any voting during the weekly airdrop cycle, they will not receive any additional incentives the following week.
+The NAT airdrop will be conducted at the beginning of every week on the Nebulas mainnet. Once addresses obtain NAT, they can choose to vote on various proposals and elections. Available voting options are "For", "Against", or "Abstain"; each choice is a valid option to receive incentives. If a user does not participate in any voting during the weekly airdrop cycle, they will not receive any additional incentives the following week.
 
 \vspace{2em}
 
@@ -213,9 +213,9 @@ If the address votes 1,000 NAT which is more than received the past week (10 NAT
 
 Similar to the weekly NAT and the NAS pledge program, the distribution of the NAT voting incentive is also decremented weekly by the same coefficient. Under the initial parameters, $\lambda$, the coefficient is $\lambda$=0.997.
 
-\subsection{Voting Rules}
+\subsection{Voting rules}
 	
-\subsubsection{Voting Fee}
+\subsubsection{Voting fee}
 
 Each vote will be charged $\theta$\% NAT as a voting fee which is authorized by the Nebulas Council to be managed by the Nebulas Foundation as a special operating fund for the NAT project. The project team will not use the collected fee directly for voting. The initial voting fee value is $\theta$=3.
 
@@ -225,7 +225,7 @@ During each weekly release cycle, the NAT that users utilize on the Nebulas main
 
 \subsubsection{Voting approval requirements}
 	
-For a proposal to be approved, the votes must meet two criteria: the degree of participation in voting and the proportion of votes in favor.
+For a proposal to be approved, the votes must meet two criterias: the degree of participation in voting and the proportion of votes in favor.
 
 \begin{enumerate}
 	\item 
@@ -244,22 +244,22 @@ For a proposal to be approved, the votes must meet two criteria: the degree of p
 
 	\textbf{The proportion of votes in favor:}
 
-	In addition to meeting the minimum voting participation, the proportion of votes required for a particular vote to be met must not be less than 51%. That is, assuming that a proposal receives a total of N votes, of which the affirmative vote is Y, the negative vote is N and the abstention is A, the proposal is considered to have been approved on only when Y/(Y+N+A) >= 51%.
+	In addition to meeting the minimum voting participation, the proportion of votes required for a particular vote to be met must not be less than 51\%. That is, assuming that a proposal receives a total of N votes, of which the affirmative vote is Y, the negative vote is N and the abstention is A, the proposal is considered to have been approved on only when Y/(Y+N+A) >= 51\%.
 	
 \end{enumerate}
 
-\subsection{Voting Supervision and Management}
+\subsection{Voting supervision and management}
 
-\subsubsection{Voting Process Supervision}
+\subsubsection{Voting process supervision}
 \label{second-vote}
 
 The Nebulas Technical Committee is appointed by the Nebulas Council to oversee the governance process and to ensure that the entire process is open and transparent. Public voting on Nebulas' public chain is organized and managed by the Nebulas Technology Committee.
 
-Public voting accepts supervision from all members of the community. For proposals that violate Nebulas' Fundamental rules, the Nebulas Technical Committee may request a retrial of the proposal to the Nebulas Council. As the supervisor of the legitimacy of the governance process within the Nebulas ecosystem, the Nebulas Council has the right to file a request for a "\textbf{second vote}."
+Public voting accepts supervision from all members of the community. For proposals that violate Nebulas' Fundamental rules, the Nebulas Technical Committee may request a retrial of the proposal to the Nebulas Council. As the supervisor of the legitimacy of the governance process within the Nebulas ecosystem, the Nebulas Council has the right to file a request for a "\textbf{second vote}".
 
-When the Board makes a request for a “second vote,” the proposal is deemed to have entered a new voting cycleand the results of the first voting process are not executed. The NAT voted in the initial cycle will not be returned and will be burned according to the burn rate of the cycle.
+When the Board makes a request for a "second vote", the proposal is deemed to have entered a new voting cycleand the results of the first voting process are not executed. The NAT voted in the initial cycle will not be returned and will be burned according to the burn rate of the cycle.
 
-The voting participation of the second vote must be greater than the participation of the first vote. That is to say, if the participation degree of the first vote is X/Y, the participation degree of the second vote should be greater than X/Y, and the proportion of the votes in favor must not be less than 51%.
+The voting participation of the second vote must be greater than the participation of the first vote. That is to say, if the participation degree of the first vote is X/Y, the participation degree of the second vote should be greater than X/Y, and the proportion of the votes in favor must not be less than 51\%.
 
 \subsubsection{NAT parameter adjustment}
 
