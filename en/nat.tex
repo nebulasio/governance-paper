@@ -36,7 +36,7 @@ The total amount of this part  in cycle $i$ is:
 \subsection{Voting incentives part}
 The voting incentives part are related to users' voting behaviors and their Nebulas Ranks. For user $j \in \mathcal{U}$, the voting incentives part are defined by :
 \begin{align}
-\mu f(x_{i,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
+\mu f(x_{i-1,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
 \end{align}
 \noindent where $\mu$ is the voting incentive coefficient, $\mu > 1$, which means that the user's voting behavior is encouraged by additional rewards, which can be adjusted according to the amount of circulating NAS in the system.
 

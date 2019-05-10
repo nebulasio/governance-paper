@@ -36,7 +36,7 @@ NAT的发行按照星云指数的计算周期进行（注意，投票周期和�
 \subsection{投票激励部分}
 投票激励部分和用户的投票行为，以及星云指数相关，对于用户$j \in \mathcal{U}$，投票激励为：
 \begin{align}
-\mu f(x_{i,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
+\mu f(x_{i-1,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
 \end{align}
 \noindent 其中$\mu$为投票激励系数，$\mu > 1$，表示对用户的投票行为给予额外的奖励，可以根据系统中流通的NAS的数量变化调整。
 
