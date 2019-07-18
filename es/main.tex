@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+
+\input{../common/common.tex}
+\usepackage{indentfirst}
+
+% ---------------------------------
+% Los siguientes comandos son un quickfix para la imposibilidad de compilar este documento usando Babel.
+\renewcommand\contentsname{Tabla de contenidos}
+\renewcommand\refname{Referencias}
+\renewcommand\appendixname{Anexo}
+\renewcommand\appendixpagename{Anexos}
+\renewcommand{\abstractname}{Resumen}
+%\renewcommand{\nomname}{Glosario}
+\renewcommand{\figurename}{Fig.}
+\newcommand{\reffig}[1]{Fig.~\ref{#1}}
+\newcommand{\refeq}[1]{Ecuación~\ref{#1}}
+\newcommand{\refsec}[1]{~\S~\ref{#1}}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\dapp}{DApp\xspace}
+\newcommand{\dom}{{\; \texttt{dom}\;}}
+\newcommand{\pidc}{Protocolo de Incentivos para Desarrolladores\xspace}
+\newcommand{\nrcore}{\textit{Core Nebulas Rank}}
+\newcommand{\nrext}{\textit{Extended Nebulas Ranks}}
+\newcommand{\nr}{\textit{Nebulas Rank}}
+\newtheorem{property}{Propiedad}
+% ---------------------------------
+
+\begin{document}
+	\pagestyle{empty}
+	\pagecolor{\pcolor}
+
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{5.5cm}
+			\includegraphics[scale=0.4]{../common/Nebulas.png}
+			\vspace{0.5cm}
+			\textbf{\huge{Libro Naranja: Gobernanza de Nebulas}}
+			\vfill
+			\vspace{0.5cm}
+				Ruby Wu, Iris Lee, Xuepeng Fan, Aero Wang, Yulong Zeng, Xinzijian Liu \\
+				Traducción: Ariel Sebastián Becker
+			\vfill
+			Abril de 2019\\
+			Versión: 0.1.1
+			\textbf{}
+		\end{center}
+	\end{titlepage}
+
+	\setcounter{page}{0}
+	%\thispagestyle{empty}
+
+	\tableofcontents
+
+	\newpage
+	\setcounter{page}{1}
+	\pagestyle{fancy}
+	\vspace*{0.01cm}
+	\input{intro.tex}
+	%\input{background.tex}
+	%\input{principle.tex}
+	%\input{institution.tex}
+	%\input{procedure.tex}
+
+	\newpage
+	\bibliography{reference}
+
+	\newpage
+	\begin{appendices}
+		%\input{nat.tex}
+		%\input{supervision.tex}
+		\newpage
+		\input{changelog.tex} % FINALIZADO
+	\end{appendices}
+
+\end{document}

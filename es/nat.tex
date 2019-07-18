@@ -1,0 +1,111 @@
+\section{Nebulas Autonomous Token NAT issuance algorithm}
+
+The issuance of NAT is based on each user's Nebulas Rank, voting behavior, and pledge amount.
+
+\subsection{Overview}
+The issuance of NAT is performed according to the weekly calculation cycle of Nebulas Rank (note: voting periods and Nebulas Rank calculations utilize the same weekly period). Based on these weekly cycles, NAT distribution is executed for each address on Nebulas looking at voting behavior, pledging and the previous week Nebulas Rank score.
+
+Detailed explanation:
+For the period $i$, the new NATs $\mathcal{T}_i$ in the system is divided into three parts - the NR part: $\mathcal{A}_i$, the voting incentives part: $\mathcal{V}_i$, the pledge part: $\mathcal{D}_i$.
+In addition, NATs used for voting will be burned/destroyed with respect to certain percentage. Assuming that for the cycle $i$, the reduced amount of NATs on the network (due to voting) is $\mathcal{M}_i$, then the total amount of NATs in the system is:
+\begin{align}
+\sum_{i=1}^{\infty} (\mathcal{A}_i + \mathcal{V}_i + \mathcal{D}_i - \mathcal{M}_i)
+\end{align}
+
+For convenience, all symbols used in this section and their corresponding explanations are listed below:
+\begin{itemize}
+\item $\mathcal{C}_i$: The sum of Nebulas Rank scores in the system in  cycle $i$;
+\item $c_{i,j}$: User $j \in \mathcal{U}$'s Nebulas Rank Score in cycle $j$ ;
+\item $d_{i,j}$: User $j \in \mathcal{U}$'s total amount of pledged NAS in cycle $i$;
+\item $v_{i,j}$: User $j \in \mathcal{U}$ 's total amount of voted NATs in cycle $i$.
+\end{itemize}
+
+\subsection{NR part}
+This part is related to the user's Nebulas Rank score, defined by
+\begin{align}
+    f(x) = g(x)\lambda^i
+\end{align}
+\noindent where $x$ is the user's Nebulas Rank score; $g(x)$ is a proportional function that adjusts the relationship between NAT and the Nebulas Rank and satisfies $g(0) = 0$ ;$\lambda$ is the attenuation coefficient, and $\lambda < 1$.
+Since $\lambda < 1$, it is easy to know $\lim_{i\to \infty}f(x) = 0$.
+
+The total amount of this part  in cycle $i$ is:
+\begin{align}
+\mathcal{A}_i = \sum_{i=1}^{\infty}f(\mathcal{C}_i).
+\end{align}
+
+\subsection{Voting incentives part}
+The voting incentives part are related to users' voting behaviors and their Nebulas Ranks. For user $j \in \mathcal{U}$, the voting incentives part are defined by :
+\begin{align}
+\mu f(x_{i-1,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
+\end{align}
+\noindent where $\mu$ is the voting incentive coefficient, $\mu > 1$, which means that the user's voting behavior is encouraged by additional rewards, which can be adjusted according to the amount of circulating NAS in the system.
+
+\subsection{Pledge part}
+The pledge part of NATs should be related to the NR part obtained based on the users‘ improved Nebulas Rank. Based on the property of Nebulas Rank, for a given amout of a user's NAS, there is an upper bound of his Nebulas Rank score $h(d_{i,j})$~\cite{ImproveNR},
+
+So, we define the NAT obtained by the pledge part to be:
+\begin{align}
+\mathcal{D}_i = \sum_{i=1}^{\infty}\alpha f(h(d_{i,j}))
+\end{align}
+\noindent where $\alpha$ is the pledge incentive coefficient.
+
+
+\subsection{Destroyed/Burned Part}
+\label{burn}
+Each time a address votes using NAT, all NAT used is immediately burned and is no longer usable. However, NAS is distributed by 3 methods; as explained earlier, they are: NR part, voting incentives part, and pledge part. Therefore, we can state that while NAT is burned, NAT is also redistributed to the network weekly and has a network burn rate. In addition, the Nebulas Council charges a fee of $\theta\%$ for each vote in order to pay for the necessary expenses of maintaining the voting services. Therefore for each user, define the destroyed part to be\begin{align}
+(1-\theta\%) \times \beta^i \times v_{i,j}
+\end{align}
+\noindent where $\beta$ is the destruction coefficient and $\beta < 1$. therefore,
+\begin{align}
+    \mathcal{M}_i = \sum_{i=1}^{\infty} (1-\theta\%) \times \beta^i \times v_{i,j} .
+\end{align}
+
+\subsection{Analysis}
+
+note:
+\begin{itemize}
+\item The current version tentatively agrees that there is no difference between a vote and a negative vote, that is, their return ratios are equivalent. It can then be set according to the ticket's type and multiplied by a different return coefficient $\mu_1$;
+\item Considering the change of the total Nebulas Rank in the system after the vote is completed, a coefficient $\mu_2$ can be multiplied to reflect the status of the system.
+\end{itemize}
+
+\begin{property}
+	The algorithm satisfies the convergence of the total amount of NAT; in return, the total amount of NATs does not exceed the upper bound at any time.
+\end{property}
+
+\begin{proof}
+	According to the details within the Nebulas Technical White Paper, the fixed total amount of NAS is $10^9$ with an average weekly issuance amount (on the basis of the fixed total) of $0.2\%$; in return, the total amount of NAS existing on the market for the $n$ cycle will not exceed $10^9 (1+0.002n) $
+
+	Next, we prove that the sum of all median values of assets of all addresses in one cycle (as defined in the Nebulas Rank Yellow Paper) does not exceed the total amount of existing NAS on the market. This is because for any NAS asset with quantity $y$,it can appear for half of the period (three and a half days) in only one address, so it can at most contribute $y$ to the sum of all median values of assets of all addresses.
+
+	Also according to the Nebula Rank Yellow Paper, the Nebulas Rank score of any
+	single address can not not exceed the median value of assets of that address
+	(for the same period; note that Nebulas Rank and NAT calculations are weekly
+	and synchronized). That is because in the formula $\Omega(\cdot)\Psi(\cdot)$
+	for calculating the Nebulas Rank, the Wilbur function $\Omega(\cdot)$, whose
+	input is the median value of the asset, satisfies $\Omega (x) \leq x$, and
+	the value of the in-and-out function $\Psi(\cdot)$ does not exceed 1.
+
+	Combined with conclusions above, in cycle $n$, the sum of Nebulas Rank scores of all addresses does not exceed $10^9(1+0.002n)$, so that the NR part does not exceed $g(10^9(1+0.002n)))\lambda^n$.
+
+	Also, since the NAT of the voting incentive part does not exceed the NR part multiplied by $\mu$, even if the returned NATs from voting is added, the total increment of NAT in voting incentive part in cycle $n$ does not exceeds $\mu g(10^9( 1+0.002n))\lambda^n$. In addition, the increment NAT from the pledge port does not exceed the total amount of NAS $g (10^9(1+0.002n))\lambda^n$.
+
+	Finally, to prove the convergence of the total amount of NAT, since NATS  from the NR part, the pledge part and the incentive part are exponentially decayed with time, it is only necessary to prove the series
+	\begin{align}
+	\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n
+	\end{align}
+    are	convergence. Since $g(\cdot)$ is a linear function,
+	\begin{align}
+	\lim_{n\rightarrow \infty} \frac{\mu g(10^9(1+0.002(n+1)))\lambda^{n+1}}{\mu g(10^9(1+ 0.002n))\lambda^n} = \lambda <1
+	\end{align}
+	The onvergence of the series can be obtained by the ratio test.
+\end{proof}
+
+The series can be convergent and verified by the comparison method.
+
+Moreover, the above voting algorithm has the following positive properties.
+\begin{enumerate}
+	\item \textbf{Anti-snowball effect:} If we always return NATs  with respect to fixed ratio, a user can vote all his  NAT to enjoy a return ratio greater than 1 (such as 1.1); then his total amount of  NATs will be exponentially increasing, as  $1.1^n$
+	\item \textbf{Anti-bribe:} If a user with a low Nebulas Rank buys a large amount of NAT to vote, since the corresponding $x_{i-1}^j$ are small for addresses with a low Nebulas Rank score, very few NATs are returned while most of them are burned. It causes the user loses many NATs as penalization.
+	\item \textbf{Anti-inflation:} The depreciation of NAT can be effectively controlled because the issuance of NATs is related to the total amount of NAT in the current market.
+	\item \textbf{Head-effect:} A user with a high Nebulas Rank during the early stages can have a higher total amount of NATs.
+\end{enumerate}
