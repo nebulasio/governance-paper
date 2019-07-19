@@ -12,18 +12,27 @@
 \renewcommand{\abstractname}{Resumen}
 %\renewcommand{\nomname}{Glosario}
 \renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\baselinestretch}{1.5}
+
 \newcommand{\reffig}[1]{Fig.~\ref{#1}}
 \newcommand{\refeq}[1]{Ecuación~\ref{#1}}
 \newcommand{\refsec}[1]{~\S~\ref{#1}}
-\renewcommand{\tablename}{Tabla}
-\renewcommand{\baselinestretch}{1.5}
-\newcommand{\dapp}{DApp\xspace}
 \newcommand{\dom}{{\; \texttt{dom}\;}}
-\newcommand{\pidc}{Protocolo de Incentivos para Desarrolladores\xspace}
-\newcommand{\nrcore}{\textit{Core Nebulas Rank}}
-\newcommand{\nrext}{\textit{Extended Nebulas Ranks}}
-\newcommand{\nr}{\textit{Nebulas Rank}}
 \newtheorem{property}{Propiedad}
+
+% Neologismos
+
+\newcommand{\blockchain}{\textit{blockchain}\xspace}
+\newcommand{\onchain}{\textit{on-chain}\xspace}
+\newcommand{\dapp}{DApp\xspace}
+\newcommand{\DAO}{Organización Autónoma Descentralizada (DAO)\xspace}
+\newcommand{\pidc}{Protocolo de Incentivos para Desarrolladores\xspace}
+\newcommand{\nrcore}{\textit{Core Nebulas Rank}\xspace}
+\newcommand{\nforce}{\textit{Nebulas Force}\xspace}
+\newcommand{\nrext}{\textit{Extended Nebulas Ranks}\xspace}
+\newcommand{\nr}{\textit{Nebulas Rank}\xspace}
+\newcommand{\forks}{\textit{forks}\xspace}
 % ---------------------------------
 
 \begin{document}
@@ -56,19 +65,19 @@
 	\setcounter{page}{1}
 	\pagestyle{fancy}
 	\vspace*{0.01cm}
-	\input{intro.tex}
-	%\input{background.tex}
-	%\input{principle.tex}
-	%\input{institution.tex}
-	%\input{procedure.tex}
+	\input{intro.tex} % FINALIZADO
+	\input{background.tex} % INCOMPLETO
+	\input{principle.tex} % INCOMPLETO
+	\input{institution.tex} % INCOMPLETO
+	\input{procedure.tex} % INCOMPLETO
 
 	\newpage
-	\bibliography{reference}
+	\bibliography{reference} % INCOMPLETO
 
 	\newpage
 	\begin{appendices}
-		%\input{nat.tex}
-		%\input{supervision.tex}
+		\input{nat.tex} % INCOMPLETO
+		\input{supervision.tex} % INCOMPLETO
 		\newpage
 		\input{changelog.tex} % FINALIZADO
 	\end{appendices}
