@@ -1,98 +1,96 @@
-\section{On-chain voting and incentive}
+\section{Votación \onchain e incentivos}
 
-Nebulas is dedicated to on-chain governance and is committed to using blockchain technology to provide a more open and collaborative environment.
+Nebulas se dedica a la gobernanza \onchain y su compromiso es el de utilizar la tecnología \blockchain para proporcionar un entorno más abierto y colaborativo.
 
-\subsection{On-chain governance process}
+\subsection{Proceso de gobernanza \onchain}
 \label{governance}
 
-The general process of Nebulas' on-chain governance is as followed~\ref{fig:on-chain-governance}:
+El proceso general de la gobernanza \onchain en Nebulas es como se describe a continuación:~\ref{fig:on-chain-governance}:
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{../common/en/on-chain-governance.pdf}
-	\caption{Nebulas on-chain governance process \label{fig:on-chain-governance}}
+	\caption{Proceso de gobernanza \onchain de Nebulas \label{fig:on-chain-governance}}
 \end{figure}
 
 \begin{enumerate}
-	\item \textbf{Proposal Period}: A project publicly submits a proposal to the community. Once submitted and if the proposal receives enough votes via the NAT on-chain voting, the project will be established;
-	\item \textbf{Develop Period}: Once established, the project creator or a community member approved by the creator will execute and complete the project as proposed;
-	\item \textbf{Testing Period}: Once the project is completed, the creator submits the final results so the community may review and/or test the project. If approved by the community via NAT on-chain voting, the project will enter the next stage;
-	\item \textbf{NBRE Period}: When the project passed the second vote, the Nebulas Technical Committee's will conduct a final review. If the community has no further objection, the project is completed.
+	\item \textbf{Periodo de propuesta}: Se presenta públicamente una propuesta a la comunidad. Una vez presentada, y si la propuesta recibe suficientes votos a través de la votación NAT \onchain, se aprobará la ejecución del proyecto;
+	\item \textbf{Periodo de desarrollo}: Una vez aprobado, el creador del proyecto —o el miembro de la comunidad aprobado por el creador— se encargará de ejecutar y completar el proyecto tal como se propuso;
+	\item \textbf{Periodo de pruebas}: Una vez finalizado el proyecto, el creador enviará el resultado final para que la comunidad lo someta a revisión. Si la comunidad lo aprueba por medio del voto NAT \onchain, el proyecto pasará a la fase final;
+	\item \textbf{Periodo \textit{NBRE}}: Cuando el proyecto pasa la segunda votación (revisión de la comunidad), el Comité Técnico de Nebulas realizará una revisión final. Si la comunidad no plantea ninguna objeción, el proyecto se marcará como completo.
 \end{enumerate}
 
-On-chain governance utilizes two components:
+La gobernanza \onchain se basa en dos propiedades:
 
 \begin{enumerate}
-	\item Voting utilizes the NAT governance token and its underlying algorithms.
-	\item The voting process is trust-less via blockchain technology.
+	\item La votación utiliza el token de gobernanza NAT y sus algoritmos subyacentes.
+	\item El proceso de votación es bizantino, mediante tecnología \blockchain.
 \end{enumerate}
 
-This Orange Paper will introduce the on-chain governance mainly.
+Este Libro Naranja cubre principalmente los aspectos de la gobernanza \onchain.
 
-\subsection{Basic principles of voting}
+\subsection{Principios básicos de votación}
 
-The Nebulas ecosystem integrates voting with its mainnet. Every vote cast by community members is transparent and visible for all to see. Within Nebulas, voting will utilize the following basic principles:
+El ecosistema de Nebulas integra las votaciones en su red principal. Cada voto emitido por los miembros de la comunidad es transparente y visible para todos. Dentro de Nebulas, la votación utiliza los siguientes principios básicos:
 
 \begin{enumerate}
-	\item The most basic unit of voting is a Nebulas mainnet address.
-	\item The votes weight will refer to the address' Nebulas Rank score.
-	\item Users positive contribution to the system should be rewarded with more voting rights. We believe that voting is a positive contribution to the Nebulas ecosystem and users should be motivated by receiving more voting rights.
+	\item La unidad básica de votación es una dirección \textit{mainnet} de Nebulas.
+	\item El peso de los votos se referirá a la valuación de la dirección, dada por \nr.
+	\item Las contribuciones positivas de los usuarios al sistema serán recompensadas con más derechos de voto. Creemos que la votación es una contribución positiva al ecosistema de Nebulas y que los usuarios deben estar motivados a recibir más derechos de voto.
 \end{enumerate}
 
-\subsection{Voting method}
+\subsection{Método de votación}
 
-Voting will be operated through a voting smart contract on the mainnet of the Nebulas blockchain. Each address can choose one of three options: For, Against or Abstain. Users can also choose not to vote.
+La votación será operada a través de un contrato inteligente en la red principal del \blockchain de Nebulas. Cada dirección podrá elegir entre tres opciones:
 
-\subsection{The only utilized voting medium: NAT}
+\begin{itemize}
+	\item A favor
+	\item En contra
+	\item Abstención.
+\end{itemize}
+
+En forma adicional, los usuarios podrán decidir simplemente no ejercer su derecho a voto.
+
+\subsection{El único medio utilizado para la votación: NAT}
 
 \label{nat}
 
-\subsubsection{Overview}
+\subsubsection{Descripción general}
 
 \begin{itemize}
-	\item \textbf{Name}: Nebulas Autonomous Token
-	\item \textbf{Ticker Symbol}: NAT
-	\item \textbf{Form}: NRC20 token
+	\item \textbf{Nombre}: Nebulas Autonomous Token
+	\item \textbf{Símbolo bursátil (\textit{ticker})}: NAT
+	\item \textbf{Estándar}: token NRC20
 \end{itemize}
 
-The Nebulas Autonomous Token (NAT) is the asset derived from Nebulas Rank which will be embodied in the form of a NRC-20 token and will serve as the only voting medium within the Nebulas governance ecosystem.
+El Token Autónomo de Nebulas (\textit{Nebulas Autonomous Token, o NAT}) es un activo derivado de Nebulas Rank que se materializará en la forma de un token NRC-20, y que servirá como el único medio de voto dentro de la gobernanza del ecosistema Nebulas.
 
 \begin{center}
-\fboxsep24pt
-\colorbox{yellow!30}{
-\begin{minipage}[c]{.8\textwidth}
-	\paragraph{What is Nebulas Rank?}
-	Nebulas Rank (NR) is the first on-chain, native, multidimensional value measurement mechanism for blockchain data.
+	\fboxsep24pt
+	\colorbox{yellow!30}{
+	\begin{minipage}[c]{.8\textwidth}
+		\paragraph{¿Qué es Nebulas Rank?}
+		Nebulas Rank (NR) es el primer mecanismo nativo \onchain de medición de valor multidimensional de los datos \blockchain.
 
-  Within the Nebulas economy, the basic unit of governance is an \emph{address}
-  (\ref{rights}). Nebulas Rank quantifies the contribution of each
-  \emph{individual} to the economic accumulation via mathematical expression of
-  the contribution to each address. Nebulas Rank is divided into \emph{Core
-  Nebulas Rank} and \emph{Extended Nebulas Rank}. Core Nebulas Rank primarily reflects two factors:
+		Dentro de la economía de Nebulas, la unidad básica de gobernanza es una \emph{dirección}
+		(\ref{rights}). Nebulas Rank cuantifica la contribución de cada
+		\emph{individuo} a la acumulación económica por medio de la expresión matemática de la contribución de cada dirección. Nebulas Rank se divide en \emph{Core
+		Nebulas Rank} y \emph{Extended Nebulas Rank}. Core Nebulas Rank refleja principalmente dos factores: el valor medio de una cuenta dentro de un período de tiempo determinado, y el grado de utilización de activos de esa cuenta durante un periodo de tiempo.
 
-	\begin{enumerate}
-		\item The median value of the account within a certain period of time.
-		\item The degree of asset utilization of the account over a period of time.
-	\end{enumerate}
+		A nivel macro, la relación entre el número de divisas, el valor del dinero, la tasa de circulación y la productividad dentro del \blockchain se puede describir con la ecuación clásica de la cantidad de dinero. El valor NR de la red entera refleja la liquidez total del ecosistema Nebulas, como así también su actividad.
 
-	At the macro level, the relationship between the number of currencies, value of money, rate of circulation, and productivity within the blockchain is described by the classical equation of the quantity of money in economics. The Nebulas Rank of the entire network can reflect the overall liquidity of the Nebulas ecosystem and its activity.
+		\paragraph{NAT y NR}
 
+		La publicación de NAT se refiere principalmente a \emph{Core Nebulas Rank}, que muestra el rendimiento de los activos. En cada emisión semanal de NAT se revisará el valor NR con referencia al promedio y grado de utilización de los activos. Para más información en el sistema de valuación Nebulas Rank, sírvase consultar el \yellowp, publicado por el Instituto de Investigaciones de Nebulas en junio de 2018.
 
-	\paragraph{NAT and NR}
+		\paragraph{¿Cómo se verifica mi valor Nebulas Rank?}
 
-  The release of NAT mainly refers to the \emph{Core Nebulas Rank} which is the asset performance. NAT issuance will review the calculated Nebulas Rank weekly with reference to the median and the degree of utilization of the assets within the week. For more information on the Nebulas Rank Score, please refer to the \textit{Yellow Paper - Nebulas Rank} published by the Nebulas Research Institute in June, 2018.
+		Nebulas Rank, a través de Nebulas NOVA~\cite{nova} recibió su primera actualización el 6 de mayo de 2019. Esta actualización hizo uso del \textit{Nebulas Blockchain Runtime Environment (NBRE)} para lograr una actualización instantánea y autónoma. El algoritmo Nebulas Rank es de código abierto y se puede consultar en línea~\cite{CheckNR}.
 
-
-	\paragraph{How to check your Nebulas Rank?}
-
-Nebulas Rank via Nebulas NOVA~\cite{nova} received its first upgrade on May 6, 2019. This upgrade utilized the Nebulas Blockchain Runtime Environment (NBRE) for autonomous and instant upgrades. The Nebulas Rank algorithm is open-sourced and can be checked online~\cite{CheckNR}.
-
-
-\end{minipage}}
+	\end{minipage}}
 \end{center}
 
-\subsubsection{Use cases of the Nebulas Autonomous Token (NAT)}
-
+\subsubsection{Casos de uso para el \textit{Nebulas Autonomous Token} (NAT)}
 
 NAT is the only voting medium within Nebulas. Community members can vote on-chain via the NAT token to decide the direction of the Nebulas ecosystem. These decisions include but are not limited to: the election of Nebulas Council members, adjustments to the Nebulas Protocol Representation(NPR) via the Nebulas Blockchain Executable Environment (NBRE), establish, vote and review community proposals.
 
@@ -114,14 +112,12 @@ Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other wallets tha
 
 All users who control Nebulas mainnet addresses (with the exception of black listed address) have the opportunity to receive NAT. Address holders can obtain NAT via three ways: improve the Nebulas Rank score of the address, participate in Nebulas on-chain voting and by pleading NAS.
 
-
 \paragraph{NAT blacklisted addresses}
 
 During the NAT distribution process, any address that conflicts with any of
 Nebulas \emph{address} basic rights (~\ref{rights}) will be classified as a blacklisted address.
 
 Blacklist addresses can only obtain partial NAT based on their rights. For example, the address of a centralized exchange is classified as a blacklist address. According to the first basic right of Nebulas address owners, the address has the right to own and operate their assets on Nebulas; in return, the exchange address can obtain NAT under the same conditions according to the Nebulas Rank of the address. However, the collected property (NAT) of the exchange should be distributed to the corresponding exchange user. According to the second and third basic rights Nebulas address ownership, the exchanges collection address does not have the right to initiate a proposal or to participate in proposal vote before the exchange proves that the collection address fully represents the corresponding custody asset user proposal and voting willingness. Therefore, blacklisted addresses cannot obtain a NAT incentive by participating in the voting.
-
 
 \subsubsection{Receive NAT by improving the Nebulas Rank score of an address}
 
@@ -130,9 +126,11 @@ NAT tokens will be distributed to Nebulas mainnet address which have a positive 
 The number of distributed tokens will be decremented weekly. The attenuation coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
 In the $i$th week, the ratio is:
+
 \begin{align}
 1\,\text{NR}=z(x_{ne},x_{e},\mu)\times\lambda^{i}\,\text{NAT}
 \end{align}
+
 Above Formula breakdown:
 
 \begin{itemize}
@@ -153,10 +151,12 @@ Users of the Pledge NAS smart contract will receive NAT beginning the second wee
 The number of distributed tokens per week will be decremented. The attenuation coefficient is $\lambda$. Initially $\lambda$ = 0.997.
 
 The ratio of pledge NAS to NAT during the $i$th week:
+
 \begin{align}
 x\,\text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times
   \lambda^{i}\,\text{NAT}
 \end{align}
+
 Above Formula breakdown:
 
 \begin{itemize}
@@ -166,12 +166,10 @@ Above Formula breakdown:
 	\item $g(x)$: A function associated with $x$ that simulates the Nebulas Rank obtained by the NAS with a $x$ value on the Nebulas mainnet.
 \end{itemize}
 
-
 \paragraph{How to start pledging?}
 To begin a pledge, users will need to send a transaction to the voting smart contract via their Nebulas wallet such as NAS nano Pro or other wallets that support the Nebulas mainnet. In return, the pledged NAS will be locked in the smart contract until the pledge is canceled by the user.
 
 In order to guarantee the acquisition of NAT, the user must send their NAS to the Pledge smart contract address via a user controlled address which they hold the private key to. Users must not send NAS to the pledge smart contract directly from an exchange or address you do not fully control.
-
 
 \paragraph{How to cancel pledging?}
 
@@ -184,7 +182,6 @@ mainnet. Once addresses obtain NAT, they can choose to vote on various
 proposals and elections. Available voting options are \textit{For}, \textit{Against}, or
 \textit{Abstain}; each choice is a valid option to receive incentives. If a user does not participate in any voting during the weekly cycle, they will not receive any additional incentives the following week.
 
-
 \paragraph{Proportion of incentives}
 
 The distribution and proportion of incentives should be fair and not used maliciously. To assist with these standards, the weekly NAT will look at the following:
@@ -194,12 +191,14 @@ The distribution and proportion of incentives should be fair and not used malici
 	\item The amount of NAT tokens to be received this week based on the addresses' Nebulas Rank score from the previous week.
 \end{enumerate}
 
-If a person votes the amount of NAT that is smaller than or equal to the NAT that is distributed based on its NR, the voted NAT will be counted in the incentive algorithm, if a person votes the NAT that is larger than the NAT that is distributed based on its NR, this part will not be considered by the incentive algorithm. 
+If a person votes the amount of NAT that is smaller than or equal to the NAT that is distributed based on its NR, the voted NAT will be counted in the incentive algorithm, if a person votes the NAT that is larger than the NAT that is distributed based on its NR, this part will not be considered by the incentive algorithm.
 
 During the $i$th week, NAT incentive distribution on the maninet address, the following formula will be used:
+
 \begin{align}
 \mu \times \min \{N_{v}, N_{nr}\} \times \lambda^{i}
 \end{align}
+
 Above Formula breakdown:
 
 \begin{itemize}
@@ -208,6 +207,7 @@ Above Formula breakdown:
 	\item $N_{v}$: the amount of NAT that is voted by the address during this week.
 	\item $N_{nr}$: how much NAT the address will receive this week based on the previous week's Nebulas Rank score.
 \end{itemize}
+
 \noindent When $N_{v}$ (sent by the address in the week) is less than or equal
 to $N_{nr}$, the number of incentive NAT obtained will be $\mu\times N_{v}$. When the $N_{v}$ of the address is greater than $N_{nr}$, the amount incentive obtained will be $\mu\times N_{nr}$.
 
@@ -220,6 +220,7 @@ This week, the address votes 5 NAT which is less than the 10 NAT received based 
 If the address votes 1,000 NAT which is more than received the past week (10 NAT) and in return will receive $10\times10=100$ NAT voting incentive.
 
 \paragraph{}
+
 Similar to the weekly NAT and the NAS pledge program, the distribution of the NAT voting incentive is also decremented weekly by the same coefficient. Under the initial parameters, $\lambda$, the attenuation coefficient is $\lambda$=0.997.
 
 \subsection{Voting rules}
@@ -244,12 +245,12 @@ For a proposal to be approved, the votes must meet two criterias: the degree of 
 	For proposals involving the use of public asset support, voting should not be less than the proportion of assets asked for by the proposal to account for assets in circulation across the network.
 
 	If a proposal requires the use of $X$ NAS, the NAS in circulation on the
-	  mainnet (any NAS that is not in the lock/pledge state and are available for
-	  immediate transfer on the mainnet) is $Y$.
+	mainnet (any NAS that is not in the lock/pledge state and are available for
+	immediate transfer on the mainnet) is $Y$.
 
 	Then the proposal must reach a voting participation rate not lower than
-	  $X/Y$, which is converted into NAT; the ratio of the NAT participating in
-	  the voting shall not be lower than $X/Y$.
+	$X/Y$, which is converted into NAT; the ratio of the NAT participating in
+	the voting shall not be lower than $X/Y$.
 
 	For proposals that do not involve the use of public asset support, voting participation is determined jointly by the community. Such proposals include but are not limited to: the adjustment of the mainnet parameters, the NPR to be performed by NBRE, etc...
 
@@ -258,11 +259,11 @@ For a proposal to be approved, the votes must meet two criterias: the degree of 
 	\textbf{The proportion of votes in favor:}
 
 	In addition to meeting the minimum voting participation, the proportion of
-	  votes required for a particular vote to be met must not be less than 51\%.
-	  That is, assuming that a proposal receives a total of N votes, of which the
-	  affirmative vote is Y, the negative vote is N and the abstention is A, the
-	  proposal is considered to have been approved on only when $Y/(Y+N+A) \ge
-	  51\%$.
+	votes required for a particular vote to be met must not be less than 51\%.
+	That is, assuming that a proposal receives a total of N votes, of which the
+	affirmative vote is Y, the negative vote is N and the abstention is A, the
+	proposal is considered to have been approved on only when $Y/(Y+N+A) \ge
+	51\%$.
 
 \end{enumerate}
 
