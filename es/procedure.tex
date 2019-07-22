@@ -92,206 +92,198 @@ El Token Autónomo de Nebulas (\textit{Nebulas Autonomous Token, o NAT}) es un a
 
 \subsubsection{Casos de uso para el \textit{Nebulas Autonomous Token} (NAT)}
 
-NAT is the only voting medium within Nebulas. Community members can vote on-chain via the NAT token to decide the direction of the Nebulas ecosystem. These decisions include but are not limited to: the election of Nebulas Council members, adjustments to the Nebulas Protocol Representation(NPR) via the Nebulas Blockchain Executable Environment (NBRE), establish, vote and review community proposals.
+El token NAT es el único medio de voto válido en Nebulas. Los miembros de la comunidad pueden ejercer su voto \onchain mediante ese token y decidir la dirección que tomará el ecosistema de Nebulas; esas decisiones incluyen, pero no están limitadas, a:
 
-\subsubsection{Release}
+\begin{itemize}
+	\item la elección de los miembros del Concejo de Nebulas
+	\item introducir ajustes al protocolo de Representación de Nebulas (\textit{Nebulas Protocol Representation, o NPR}) haciendo uso del Entorno Ejecutable Blockchain de Nebulas (\textit{Nebulas Blockchain Executable Environment, o NBRE}).
+	\item establecer, votar y revisar propuestas comunitarias.
+\end{itemize}
 
-The distribution method of NAT is similar to that of Bitcoin with the premise that there is an upper limit on the total supply and the distributed supply is decremented weekly.
+\subsubsection{Lanzamiento}
 
-The supply upper limit of NAT tokens is related to the Nebulas Rank score of
-the entire Nebulas mainnet. The release amount is decremented weekly and the
-attenuation coefficient is $\lambda$. The initial value of $\lambda$ is 0.997; this means that by week 180, the circulation is decremented to 58\% of the first week.
+El método de distribución de NAT es similar al utilizado por Bitcoin —en cuanto existe un límite superior en el suministro total— y la cantidad distribuida semanalmente se irá decrementando.
 
-The initial circulation of NAT is based on the status of Nebulas NOVA mainnet after the completion of it's first voting upgrade on May 6th, 2019. Based on the current Nebulas Rank of the entire network and initial parameters, the upper limit of the total amount of NAT to ever exist will be 100 billion.
+El límite superior del suministro de tokens NAT está relacionado a la valuación \nr de la red mainnet en su conjunto. La cantidad emitida se decrementará semanalmente, con un coeficiente de atenuación de $\lambda$.
 
-\subsubsection{Managing NAT}
+El valor inicial de $\lambda$ será de 0,997; esto significa que, por ejemplo, para la semana 180, la circulación se decrementará en un 58\% con respecto a la primera semana.
 
-Users can manage their NAT via NAS nano Pro~\cite{NASnano} and other wallets that support Nebulas NRC20~\cite{wallets} tokens. Users can view NAT transactions and circulation on blockchain explorers~\cite{explorer} that support the Nebulas mainnet.
+La circulación inicial de NAT dependerá del estado de la \mainnet de Nebulas NOVA luego de la finalización de su primera actualización de votación, programada para el 6 de mayo de 2019. Con base en la valuación \nr de la red completa, y de acuerdo a sus parámetros iniciales, el límite superior del total absoluto de NAT en existencia será de 100 000 000 000.
 
-\subsection{Obtaining NAT}
+\subsubsection{Administración de los tokens NAT}
 
-All users who control Nebulas mainnet addresses (with the exception of black listed address) have the opportunity to receive NAT. Address holders can obtain NAT via three ways: improve the Nebulas Rank score of the address, participate in Nebulas on-chain voting and by pleading NAS.
+Los usuarios pueden administrar sus tokens NAT mediante la aplicación \textit{NAS nano Pro}~\cite{NASnano}, o cualquier otra cartera que dé soporte a tokens de estándar NRC20~\cite{wallets}. Los usuarios pueden ver las transacciones NAT y su circulación en cualquier explorador \blockchain de la mainnet de Nebulas~\cite{explorer}.
 
-\paragraph{NAT blacklisted addresses}
+\subsection{Obtención de los tokens NAT}
 
-During the NAT distribution process, any address that conflicts with any of
-Nebulas \emph{address} basic rights (~\ref{rights}) will be classified as a blacklisted address.
+Todos los usuarios que controlen al menos una dirección mainnet de Nebulas (exceptuando aquellas direcciones en lista negra) tendrán la oportunidad de recibir tokens NAT. Los propietarios de esas direcciones podrán obtener tokens NAT por medio de tres métodos:
 
-Blacklist addresses can only obtain partial NAT based on their rights. For example, the address of a centralized exchange is classified as a blacklist address. According to the first basic right of Nebulas address owners, the address has the right to own and operate their assets on Nebulas; in return, the exchange address can obtain NAT under the same conditions according to the Nebulas Rank of the address. However, the collected property (NAT) of the exchange should be distributed to the corresponding exchange user. According to the second and third basic rights Nebulas address ownership, the exchanges collection address does not have the right to initiate a proposal or to participate in proposal vote before the exchange proves that the collection address fully represents the corresponding custody asset user proposal and voting willingness. Therefore, blacklisted addresses cannot obtain a NAT incentive by participating in the voting.
+\begin{itemize}
+	\item mejorando la valuación NR de sus direcciones
+	\item participando en las votaciones \onchain de Nebulas
+	\item colocando NAS en prenda.
+\end{itemize}
 
-\subsubsection{Receive NAT by improving the Nebulas Rank score of an address}
+\paragraph{Direcciones NAT en lista negra}
 
-NAT tokens will be distributed to Nebulas mainnet address which have a positive NR score on a weekly basis. The number of NAT tokens distributed will be based on the weekly Nebulas Rank of the address and the Nebulas Rank of the entire mainnet.
+Durante el proceso de distribución de los tokens NAT, cualquier dirección que entre en conflicto con uno o más los derechos básicos de las direcciones Nebulas (~\ref{rights}) ingresará automáticamente en una \textit{lista negra}.
 
-The number of distributed tokens will be decremented weekly. The attenuation coefficient is $\lambda$. Initially $\lambda$ = 0.997.
+Las direcciones en lista negra sólo podrán obtener tokens NAT si cumplen con sus derechos. Por ejemplo, la dirección (o direcciones) de una casa de cambio centralizada están en lista negra. De acuerdo al primer derecho básico, un propietario de direcciones Nebulas tiene el derecho de propiedad y uso de sus activos en Nebulas; así, la dirección de la casa de cambio podría obtener NAT de acuerdo a su valuación NR y bajo las mismas condiciones que otros usuarios. No obstante, la propiedad (es decir, los tokens NAT) de la casa de cambio deberían ser distribuidos a sus correspondientes usuarios. De acuerdo a los derechos básicos restantes, la dirección de la casa de cambio no posee derecho a iniciar una propuesta o a participar en votaciones a menos que la casa de cambio demuestre que los activos de esa dirección representan plenamente la propuesta de un usuario o su disposición para votar. De ese modo, las direcciones en lista negra no pueden obtener incentivos NAT mediante participación en votaciones.
 
-In the $i$th week, the ratio is:
+\subsubsection{Recepción de tokens NAT mediante la mejora de la valuación NR de una dirección}
+
+Los tokens NAT se distribuirán semanalmente a las distintas direcciones \textit{mainnet} de Nebulas cuya valuación NR sea positiva. El número de tokens NAT distribuidos estará basado en el valor semanal NR de la dirección, y del NR de la red en su conjunto.
+
+El número de tokens distribuidos se decrementará semanalmente. El coeficiente de atenuación es $\lambda$. Inicialmente, $\lambda$ = 0,997.
+
+En la $i$a semana, la proporción será:
 
 \begin{align}
 1\,\text{NR}=z(x_{ne},x_{e},\mu)\times\lambda^{i}\,\text{NAT}
 \end{align}
 
-Above Formula breakdown:
+Descripción de la fórmula anterior:
 
 \begin{itemize}
-	\item $\lambda$: attenuation coefficient.
-	\item $\mu$: incentive parameters for voting behavior.
-	\item $x_{ne}$: the sum of the NR score of non-exchange address on the entire mainnet.
-	\item $x_{e}$: NR sum of the entire mainnet.
-	\item $z(x_{ne},x_{e},\mu)$: function with $x_{ne}$, $x_{e}$ and $\mu$ as variables, Nebulas Rank and NAT redemption proportion.
+	\item $\lambda$: coeficiente de atenuación.
+	\item $\mu$: parámetros del incentivo de comportamiento de voto.
+	\item $x_{ne}$: la suma de la valuación NR de las direcciones de la mainnet en su conjunto (excepto casas de cambio centralizadas).
+	\item $x_{e}$: la suma de la valuación NR de la mainnet en su conjunto.
+	\item $z(x_{ne},x_{e},\mu)$: función con $x_{ne}$, $x_{e}$ y $\mu$ como variables, Nebulas Rank y proporción de pago de NAT.
 \end{itemize}
 
-\subsubsection{Pledging NAS to receive NAT}
+\subsubsection{Prendar NAS para recibir NAT}
 
-Starting May 6, 2019, users of Nebulas mainnet can choose to obtain NAT by
-\emph{pledging} Nebulas native coin NAS via a smart contract.
+Comenzando a partir del 6 de mayo de 2019, los usuarios de la mainnet de Nebulas podrán optar por recibir NAT \emph{prendando} la criptodivisa nativa de Nebulas, NAS, a través de un contrato inteligente.
 
-Users of the Pledge NAS smart contract will receive NAT beginning the second week after pledging begins (May 13, 2019). If users cancel their pledge, NAT distribution will cease.
+El usuario de ese contrato inteligente recibirá tokens NAT a partir de la segunda semana luego de haber realizado la prenda. Si el usuario cancela la prenda, la distribución de tokens NAT cesará de inmediato.
 
-The number of distributed tokens per week will be decremented. The attenuation coefficient is $\lambda$. Initially $\lambda$ = 0.997.
+El número de tokens distribuidos semanalmente se irá decrementando de acuerdo a un coeficiente de atenuación $\lambda$. Inicialmente, $\lambda$ = 0,997.
 
-The ratio of pledge NAS to NAT during the $i$th week:
+La proporción de NAT a recibir por NAS prendados, durante la $i$a semana:
 
 \begin{align}
 x\,\text{NAS} \rightarrow \alpha \times z(x_{ne},x_{e},\mu)\times g(x) \times
   \lambda^{i}\,\text{NAT}
 \end{align}
 
-Above Formula breakdown:
+Descripción de la fórmula:
 
 \begin{itemize}
-	\item $x$: the number of pledged NAS.
-	\item $\alpha$: the pledge coefficient, $\alpha$=5 in the initial state.
-	\item $z(x_{ne},x_{e},\mu)$: function with $x_{ne}$, $x_{e}$, and $\mu$ as variables, the exchange ratio of NR and NAT.
-	\item $g(x)$: A function associated with $x$ that simulates the Nebulas Rank obtained by the NAS with a $x$ value on the Nebulas mainnet.
+	\item $x$: NAS prendados.
+	\item $\alpha$: coeficiente de prendado, $\alpha$=5 en el estado inicial.
+	\item $z(x_{ne},x_{e},\mu)$: función con $x_{ne}$, $x_{e}$, y $\mu$ como variables, la proporción de intercambio de NR y NAT.
+	\item $g(x)$: una función asociada con $x$ que simula la valuación NR obtenida por los NAS $x$ de la mainnet de Nebulas.
 \end{itemize}
 
-\paragraph{How to start pledging?}
-To begin a pledge, users will need to send a transaction to the voting smart contract via their Nebulas wallet such as NAS nano Pro or other wallets that support the Nebulas mainnet. In return, the pledged NAS will be locked in the smart contract until the pledge is canceled by the user.
+\paragraph{¿Cómo se inicia la prenda de NAS?}
+Para iniciar el proceso, los usuarios deben enviar una transacción al contrato inteligente correspondiente, mediante una cartera Nebulas (tal como la NAS nano Pro). Al hacerlo, los NAS prendados quedarán bloqueados en el contrato inteligente hasta que el usuario decida cancelar la prenda.
 
-In order to guarantee the acquisition of NAT, the user must send their NAS to the Pledge smart contract address via a user controlled address which they hold the private key to. Users must not send NAS to the pledge smart contract directly from an exchange or address you do not fully control.
+Para garantizar la adquisición de tokens NAT, el usuario debe enviar sus NAS al contrato inteligente (\textit{Pledge smart contract}) a través de una dirección controlada por el usuario, y de la cual posea su clave privada. Los usuarios no deben, bajo ninguna circunstancia, enviar NAS al contrato inteligente desde una casa de cambio o desde una dirección sobre la cual no tengan la clave privada.
 
-\paragraph{How to cancel pledging?}
+\paragraph{¿Cómo se cancela el contrato de prenda?}
 
-If a user wants to cancel their pledge and unlock their NAS, NAS nano Pro or other supported wallets can interact with the smart contract to cancel the pledge. After canceling, the pledged NAS will be unlocked and will become available to the user.
+Si el usuario decide cancelar la prenda y desbloquear sus NAS, cualquier cartera NAS con soporte a contratos inteligentes y tokens NRC-20 podrá interactuar con el contrato inteligente previamente mencionado para cancelar la prenda. Luego de cancelarla, los NAS previamente prendados quedarán desbloqueados y a disposición del usuario.
 
-\subsubsection{Receive NAT through Nebulas on-chain voting}
+\subsubsection{Recepción de NAT por medio del voto \onchain en Nebulas}
 
-The NAT will be conducted at the beginning of every week on the Nebulas
-mainnet. Once addresses obtain NAT, they can choose to vote on various
-proposals and elections. Available voting options are \textit{For}, \textit{Against}, or
-\textit{Abstain}; each choice is a valid option to receive incentives. If a user does not participate in any voting during the weekly cycle, they will not receive any additional incentives the following week.
+La recepción de tokens NAT se llevará a cabo al comienzo de cada semana dentro de la mainnet de Nebulas. Una vez que las direcciones reciban sus NAT, pueden utilizarlos para votar en distintas elecciones y proyectos. Las opciones de voto son \textit{For} (a favor), \textit{Against} (en contra), or \textit{Abstain} (abstención); cada elección es una opción válida para recibir incentivos. Si el usuario no participa en ninguna votación durante el ciclo semanal, no recibirá ningún incentivo semanal la semana siguiente.
 
-\paragraph{Proportion of incentives}
+\paragraph{Proporción de incentivos}
 
-The distribution and proportion of incentives should be fair and not used maliciously. To assist with these standards, the weekly NAT will look at the following:
+La distribución y proporción de los incentivos debe ser justa y no utilizarse maliciosamente. Para cumplir con esos requisitos, la distribución semanal de tokens NAT tendrá en cuenta lo siguiente:
 
 \begin{enumerate}
-	\item The number of NAT the address utilized for voting during the week.
-	\item The amount of NAT tokens to be received this week based on the addresses' Nebulas Rank score from the previous week.
+	\item El número de tokens NAT que la dirección dada utilizó para votar durante la semana.
+	\item La cantidad de tokens NAT recibidos en la semana en relación a la valuación NR de la semana previa.
 \end{enumerate}
 
-If a person votes the amount of NAT that is smaller than or equal to the NAT that is distributed based on its NR, the voted NAT will be counted in the incentive algorithm, if a person votes the NAT that is larger than the NAT that is distributed based on its NR, this part will not be considered by the incentive algorithm.
+Si una persona utiliza para votar una cantidad de NAT menor o igual al total recibido de acuerdo a su valuación NR, los NAT utilizados serán tenidos en cuenta en el algoritmo de incentivos; si esa persona utiliza una cantidad de NAT superior a la correspondiente a su valuación NR, esa parte no será tenida en cuenta por el algoritmo de incentivos.
 
-During the $i$th week, NAT incentive distribution on the maninet address, the following formula will be used:
+Durante la $i$a semana, la distribución de incentivos NAT en cada dirección mainnet utilizará la siguiente fórmula:
 
 \begin{align}
 \mu \times \min \{N_{v}, N_{nr}\} \times \lambda^{i}
 \end{align}
 
-Above Formula breakdown:
-
 \begin{itemize}
-	\item $\mu$: the incentive parameters, $\mu$=10 under the initial parameters.
-	\item $\lambda$: attenuation coefficient, initial value $\lambda$=0.997.
-	\item $N_{v}$: the amount of NAT that is voted by the address during this week.
-	\item $N_{nr}$: how much NAT the address will receive this week based on the previous week's Nebulas Rank score.
+	\item $\mu$: parámetros de los incentivos, $\mu$=10 bajo los parámetros iniciales.
+	\item $\lambda$: coeficiente de atenuación, valor $\lambda$=0,997.
+	\item $N_{v}$: la cantidad de NAT utilizados para votar la semana previa.
+	\item $N_{nr}$: cuántos NAT recibirá la dirección esa semana de acuerdo a su valuación NR en la semana previa.
 \end{itemize}
 
-\noindent When $N_{v}$ (sent by the address in the week) is less than or equal
-to $N_{nr}$, the number of incentive NAT obtained will be $\mu\times N_{v}$. When the $N_{v}$ of the address is greater than $N_{nr}$, the amount incentive obtained will be $\mu\times N_{nr}$.
+\noindent Cuando $N_{v}$ (enviados por la dirección durante la semana) es menor o igual a $N_{nr}$, el número de incentivos NAT obtenidos será de $\mu\times N_{v}$. Cuando la $N_{v}$ de la dirección es mayor a $N_{nr}$, la cantidad de incentivos será de $\mu\times N_{nr}$.
 
-\paragraph{For example}
+\paragraph{Ejemplo}
 
-An address obtains 10 NAT based on its NR score from the previous week and there is a total of 1,000 NAT held within the address.
+Una dirección obtiene 10 NAT de acuerdo a la valuación NR de la semana previa. Esa dirección guarda 1000 NAT adicionales.
 
-This week, the address votes 5 NAT which is less than the 10 NAT received based on its NR score from the previous week, and in return, will receive $10\times5=50$ NAT voting incentive.
+Esa semana la dirección utiliza 5 NAT en votaciones, lo cual es menor a los 10 NAT recibidos por su valuación NR de la semana anterior; como recompensa, recibirá $10\times5=50$ NAT en incentivos de voto.
 
-If the address votes 1,000 NAT which is more than received the past week (10 NAT) and in return will receive $10\times10=100$ NAT voting incentive.
+Si la dirección decide utilizar 1000 NAT para votar, lo cual excede los 10 NAT recibidos por la valuación NR de la semana previa, recibirá $10\times10=100$ NAT como incentivos de voto.
 
 \paragraph{}
 
-Similar to the weekly NAT and the NAS pledge program, the distribution of the NAT voting incentive is also decremented weekly by the same coefficient. Under the initial parameters, $\lambda$, the attenuation coefficient is $\lambda$=0.997.
+En forma similar a lo anterior, la distribución del incentivo NAT también se decrementará semanalmente por el mismo coeficiente. Bajo los parámetros iniciales, $\lambda$, el coeficiente de atenuación será $\lambda$=0,997.
 
-\subsection{Voting rules}
+\subsection{Reglas de voto}
 
-\subsubsection{Voting fee}
+\subsubsection{Tarifa de votación}
 
-Each vote will be charged $\theta$\% NAT as a voting fee which is authorized by the Nebulas Council to be managed by the Nebulas Foundation as a special operating fund for the NAT project. The project team will not use the collected fee directly for voting. The initial voting fee value is $\theta$=3.
+Cada voto costará $\theta$\% NAT como tarifa de votación, lo cual está autorizado por el Concejo de Nebulas, para ser administrado por la Fundación Nebulas como un fondo especial de operaciones para el proyecto NAT. El equipo del citado proyecto no podrá usar los NAT así recolectados para votar. El valor inicial de la tarifa de voto es $\theta$=3.
 
-\subsubsection{Voting and NAT Destruction}
+\subsubsection{Votación y destrucción de los tokens NAT}
 
-During each weekly release cycle, the NAT that users utilize on the Nebulas mainnet via the voting smart contract will be immediately destroyed. NAT tokens will however be distributed every week via the above listed methods to reduce the overall network destruction rate. The proportion of destruction will be decremented according to the cycle. The deceleration rate is consistent with the issuance rate of NAT. The NAT destroyed during each cycle will be calculated according to the NAT destruction rate function as shown in the appendix ref{burn}.
+Durante cada ciclo semanal de emisión, los NAT que los usuarios utilicen en la mainnet de Nebulas, por medio del contrato inteligente, serán destruidos inmediatamente. No obstante ello, también se distribuirán nuevos tokens NAT de forma semanal por los métodos descriptos más arriba, con el fin de reducir la tasa de destrucción global. La proporción de tokens destruidos se irá decrementando de acuerdo al ciclo. La tasa de desaceleración es consistente con la tasa de emisión. La cantidad de NAT a destruir durante cada ciclo será calculada de acuerdo a la función que se provee en el anexo; véase ref{burn}.
 
-\subsubsection{Voting approval requirements}
+\subsubsection{Requerimientos de aprobación de las votaciones}
 
-For a proposal to be approved, the votes must meet two criterias: the degree of participation in voting and the proportion of votes in favor.
+Para que una propuesta sea aprobada, los votos deben reunir dos criterios: grado de participación en la votación, y proporción de votos a favor.
 
 \begin{enumerate}
 	\item
 
-	\textbf{Voting engagement:}
+	\textbf{Participación:}
 
-	For proposals involving the use of public asset support, voting should not be less than the proportion of assets asked for by the proposal to account for assets in circulation across the network.
+	Para aquellas propuestas que involucren el uso de activos públicos, la cantidad total de votos no debe ser menor que la proporción de activos requeridos por la propuesta en relación al total de activos en circulación en la mainnet.
 
-	If a proposal requires the use of $X$ NAS, the NAS in circulation on the
-	mainnet (any NAS that is not in the lock/pledge state and are available for
-	immediate transfer on the mainnet) is $Y$.
+	Si una propuesta requiere el uso de $X$ NAS, y la cantidad de NAS en circulación dentro de la mainnet (cualquier NAS que no está bloqueado o prendado, y que está disponible para su transferencia inmediata) es de $Y$, la propuesta debe alcanzar una tasa de participación no menor a
+	$X/Y$, que se convierte en NAT; la proporción de los NAT participantes en la votación no deben ser menor a $X/Y$.
 
-	Then the proposal must reach a voting participation rate not lower than
-	$X/Y$, which is converted into NAT; the ratio of the NAT participating in
-	the voting shall not be lower than $X/Y$.
-
-	For proposals that do not involve the use of public asset support, voting participation is determined jointly by the community. Such proposals include but are not limited to: the adjustment of the mainnet parameters, the NPR to be performed by NBRE, etc...
+	Para aquellas propuestas que no requieren el uso de activos públicos, la participación será determinada por la comunidad. Tales propuestas incluyen, pero no se limitan, a: ajuste de los parámetros de la mainnet, un NPR a ser ejecutado por la NBRE, etcétera.
 
 	\item
 
-	\textbf{The proportion of votes in favor:}
+	\textbf{Proporción de votos a favor:}
 
-	In addition to meeting the minimum voting participation, the proportion of
-	votes required for a particular vote to be met must not be less than 51\%.
-	That is, assuming that a proposal receives a total of N votes, of which the
-	affirmative vote is Y, the negative vote is N and the abstention is A, the
-	proposal is considered to have been approved on only when $Y/(Y+N+A) \ge
-	51\%$.
+	Adicionalmente al requerimiento de participación mínima, la proporción de votos positivos requerida en una votación en particular debe alcanzar o superar el 51\%.
+	Dicho de otro modo: asumiendo que una propuesta recibe un total de $X$ votos, de los cuales el total de votos afirmativos es $S$, el total de votos negativos es $N$ y los votos en abstención se representan por $A$, la propuesta se considera aprobada si $S/(S+N+A) \ge 51\%$.
 
 \end{enumerate}
 
-\subsection{Voting supervision and management}
+\subsection{Supervisión y administración de las votaciones}
 
-\subsubsection{Voting process supervision}
+\subsubsection{Supervisión del proceso de votación}
 \label{second-vote}
 
-The Nebulas Technical Committee is appointed by the Nebulas Council to oversee the governance process and to ensure that the entire process is open and transparent. Public voting on Nebulas' public chain is organized and managed by the Nebulas Technology Committee.
+El Comité Técnico es nombrado por el Concejo para supervisar el proceso de gobernanza y asegurar que todo el proceso sea abierto y transparente. La votación pública sobre el \blockchain de Nebulas está organizada y administrada por el Comité Técnico.
 
-Public voting accepts supervision from all members of the community. For proposals that violate any basic rights of any Nebulas address, the Nebulas Technical Committee may request a retrial of the proposal to the Nebulas Council. As the supervisor of the legitimacy of the governance process within the Nebulas ecosystem, the Nebulas Council has the right to file one and only one request for a \textbf{second vote}.
+Toda votación pública admite la supervisión por parte de cualquier miembro de la comunidad. Ante aquellas propuestas que violen cualquier derecho básico de una dirección de Nebulas, el Comité Técnico podrá solicitar su revisión al Concejo. Como supervisor de la legitimidad del proceso de gobernanza dentro del ecosistema de Nebulas, el Concejo tiene el derecho de presentar una y sólo una solicitud para un \textbf{segundo voto}.
 
-When the Board makes a request for a \emph{second vote}, the proposal is deemed to have entered a new voting cycleand the results of the first voting process are not executed. The NAT voted in the initial cycle will not be returned and will be burned according to the burn rate of the cycle.
+Cuando el Concejo solicita una \textbf{segunda votación}, se considera que la propuesta ha entrado en un nuevo ciclo de votación, por lo cual no se ejecutan los resultados de la primera votación. El NAT utilizado en la votación del ciclo inicial no será devuelto y será quemado de acuerdo a la tasa de quemado del ciclo semanal en vigencia.
 
-The voting participation of the second vote must be greater than the
-participation of the first vote. That is to say, if the participation degree of
-the first vote is $X/Y$, the participation degree of the second vote should be
-greater than $X/Y$, and the proportion of the votes in favor must not be less than 51\%.
+La participación en la segunda votación debe ser mayor que la participación en la primera. Es decir, si el grado de participación de la primera votación es de $X/Y$, el grado de participación de la segunda votación deberá ser superior a $X/Y$, y la proporción de votos a favor no deberá ser inferior al 51\%.
 
-\subsubsection{NAT parameter adjustment}
+\subsubsection{Parámetros de ajuste para NAT}
 
-The NAT distribution process involves the following factors:
+El proceso de distribución de tokens NAT involucra los siguientes factores:
 
 \begin{enumerate}
-	\item $\alpha$: pledge coefficient, initial value $\alpha$=5
-	\item $\mu$: voting reward factor, initial value $\mu$=10
-	\item $\lambda$: attenuation coefficient, initial value $\lambda$=0.997
-	\item $\theta$: voting fee, initial value $\theta$=3
+	\item $\alpha$: coeficiente de prenda, valor inicial $\alpha$=5
+	\item $\mu$: factor de recompensa de voto, valor inicial $\mu$=10
+	\item $\lambda$: coeficiente de atenuación, valor inicial $\lambda$=0,997
+	\item $\theta$: tarifa de votación, valor inicial $\theta$=3
 \end{enumerate}
 
-Adjustment of the coefficient must go through the governance voting process; the Nebulas Foundation or NAT project team has no right to adjust the coefficients without authorization.
+El ajuste del coeficiente se debe realizar a través del sistema de gobernanza por voto; la Fundación Nebulas o el equipo del proyecto NAT no tienen derecho a ajustar los coeficientes sin autorización de la comunidad.
