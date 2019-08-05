@@ -1,0 +1,128 @@
+\section{Algoritmo de emisión del Token Autónomo de Nebulas (NAT)}
+
+La emisión de NAT está basada en el coeficiente \textit{Nebulas Rank} de cada usuario, su comportamiento de voto, y la cantidad de NAS colocados en prenda.
+
+\subsection{Descripción general}
+La emisión de NAT se llevará a cabo de acuerdo al ciclo de cálculo semanal de Nebulas Rank (nota: los períodos de voto y el cálculo de los valores NR utilizan el mismo periodo semanal). Basándonos en esos ciclos semanales, la distribución de NAT se ejecutará para cada dirección en Nebulas teniendo en cuenta el comportamiento de voto, la cantidad de NAS en prenda y el valor NR de la semana inmediatamente anterior.
+
+Explicación detallada:
+
+Para el periodo $i$, los nuevos NAT $\mathcal{T}_i$ en el sistema se dividen en tres partes - valor NR: $\mathcal{A}_i$, incentivos de voto: $\mathcal{V}_i$, y prendas NAS: $\mathcal{D}_i$.
+
+Además, los NAT utilizados para votar serán destruidos dentro de un porcentaje. Asumiendo que para el ciclo $i$, el valor reducido de NAT en la red (debido a votaciones) es de $\mathcal{M}_i$, entonces la cantidad total de NAT en el sistema es:
+\begin{align}
+\sum_{i=1}^{\infty} (\mathcal{A}_i + \mathcal{V}_i + \mathcal{D}_i - \mathcal{M}_i)
+\end{align}
+
+Por conveniencia, todos los símbolos utilizados en esta sección, y sus correspondientes explicaciones, se dan más abajo:
+
+\begin{itemize}
+\item $\mathcal{C}_i$: La suma de valores NR en el sistema en el ciclo $i$;
+\item $c_{i,j}$: El valor NR del usuario $j \in \mathcal{U}$ en el ciclo $j$ ;
+\item $d_{i,j}$: El total de NAS prendados por el usuario $j \in \mathcal{U}$ en el ciclo $i$;
+\item $v_{i,j}$: El total de NAT que el usuario $j \in \mathcal{U}$ utilizó para votar en el ciclo $i$.
+\end{itemize}
+
+\subsection{NR}
+Esta parte está relacionada al valor NR del usuario, definido por
+\begin{align}
+    f(x) = g(x)\lambda^i
+\end{align}
+\noindent donde $x$ es la valuación NR del usuario; $g(x)$ es una función proporcional que ajusta la relación entre NAT y Nebulas Rank y satisface $g(0) = 0$ ;$\lambda$ es el coeficiente de atenuación, y $\lambda < 1$.
+
+Como $\lambda < 1$, es fácil saber $\lim_{i\to \infty}f(x) = 0$.
+
+La cantidad total para esta parte en el ciclo $i$ es:
+
+\begin{align}
+\mathcal{A}_i = \sum_{i=1}^{\infty}f(\mathcal{C}_i).
+\end{align}
+
+\subsection{Incentivos de votación}
+
+La parte de incentivos de votación está relacionada al comportamiento de voto de los usuarios y su valuación NR.
+
+Para un usuario $j \in \mathcal{U}$, la parte de incentivos de voto está definida por:
+
+\begin{align}
+\mu f(x_{i-1,j}) \min\{\frac{v_{i,j}}{f(x_{i-1,j})},1\}
+\end{align}
+
+\noindent donde $\mu$ es el coeficiente de incentivo de voto, $\mu > 1$, lo que implica que el comportamiento de voto del usuario es alentado por subsiguientes recompensas, lo cual se ajusta de acuerdo a la cantidad de NAS en circulación en el sistema.
+
+\subsection{NAS prendado}
+
+La parte de NAS prendado se debe relacionar con la parte NR obtenida en base al NR mejorado de usuario. Basándonos en la propiedad de Nebulas Rank, dada una cierta cantidad de NAS pertenecientes al usuario, hay un límite superior para su valuación Nebulas Rank $h(d_{i,j})$~\cite{ImproveNR},
+
+Así, definimos el NAT obtenido mediante prenda como:
+
+\begin{align}
+\mathcal{D}_i = \sum_{i=1}^{\infty}\alpha f(h(d_{i,j}))
+\end{align}
+\noindent donde $\alpha$ es el coeficiente del incentivo de la prenda.
+
+
+\subsection{Destrucción de NAT}
+
+\label{burn}
+
+Cada vez que desde una dirección se vota utilizando NAT, todo el NAT utilizado se destruye de forma tal que no es posible utilizarlo nuevamente. No obstante, el token NAT se distribuye mediante tres métodos, como se explicó antes: una parte por valuación NR, una parte por incentivos de voto, y una parte por NAS prendado. Así, podemos afirmar que mientras por un lado se destruye NAT, por otro lado se redistribuye NAT semanalmente en la red. En suma, el Concejo Nebulas establece una tarifa de $\theta\%$ por voto con el fin de cubrir las expensas de mantenimiento del servicio de votación. Por consiguiente, por cada usuario, se define la parte a destruir como:
+
+\begin{align}
+	(1-\theta\%) \times \beta^i \times v_{i,j}
+\end{align}
+\noindent donde $\beta$ es el coeficiente de destrucción y $\beta < 1$. De ello se desprende que
+
+\begin{align}
+	\mathcal{M}_i = \sum_{i=1}^{\infty} (1-\theta\%) \times \beta^i \times v_{i,j} .
+\end{align}
+
+\subsection{Análisis}
+
+Nota:
+\begin{itemize}
+\item La versión actual tentativamente coincide en que no hay diferencia entre un voto positivo y uno negativo; es decir que sus tasas de retorno son equivalentes. Puede configurarse de acuerdo al tipo de ticket y multiplicarse por un coeficiente de retorno distinto $\mu_1$;
+
+\item Considerando el cambio del NR total en el sistema luego de que se completa una votación, el coeficiente $\mu_2$ se puede multiplicar para reflejar el nuevo estado.
+\end{itemize}
+
+\begin{property}
+	El algoritmo satisface la convergencia de la cantidad total de NAT; a cambio, la cantidad total de NAT no excede el límite superior en ningún momento.
+\end{property}
+
+\begin{proof}
+	De acuerdo a los detalles dados por el \techw, la suma fija total de NAS es de $10^9$ con una emisión promedio semanal (con base en el monto total) de $0.2\%$; a cambio, la cantidad total de NAS existente en el mercado para el ciclo $n$ no excede $10^9 (1+0.002n)$
+
+	Luego, demostramos que la suma de todos los valores medios de los activos de todas las direcciones en un ciclo (tal como se define en el Libro Amarillo) no excede la cantidad total de NAS existente en el mercado. Esto es así debido a por cada activo NAS con una cantidad $y$, sólo es posible tenerlos en una dirección durante tres días y medio, por lo que, a lo sumo, contribuirá $y$ a la suma de todos los valores medios de activos de todas las direcciones.
+
+	De acuerdo, también, al Libro Amarillo, el valor NR de cualquier dirección no puede exceder el valor medio de los activos en esa dirección (durante el mismo periodo; nótese que los cálculos de Nebulas Rank y NAT se realizan en forma semanal y sincronizada). Esto es así debido a que en la fórmula $\Omega(\cdot)\Psi(\cdot)$ utilizada para calcular NR, la función Wilbur $\Omega(\cdot)$, cuyo argumento es el valor medio del activo, satisface $\Omega (x) \leq x$, y el valor de la función $\Psi(\cdot)$ no excede 1.
+
+	En línea con las conclusiones extraidas más arriba, en el ciclo $n$, la suma de valores NR de todas las direcciones no excede $10^9(1+0.002n)$, por lo que la parte NR no excede $g(10^9(1+0.002n)))\lambda^n$.
+
+	Además, dado que los tokens NAT de la parte del incentivo de votación no excede la parte NR multiplicada por $\mu$, aún si se añaden todos los NAT devueltos por la votación, el incremento total de NAT en la parte del incentivo de votación en el ciclo $n$ no excede $\mu g(10^9( 1+0.002n))\lambda^n$. En suma, el incremento de NAT atribuible a la parte de prenda no excede la cantidad total de NAS $g (10^9(1+0.002n))\lambda^n$.
+
+	En síntesis; para demostrar la convergencia de la cantidad total de NAT, puesto que los NAT provenientes de la parte NR, los de la parte de prenda y los de la parte de los incentivos decaen exponencialmente con el tiempo, sólo es necesario probar que las series
+
+	\begin{align}
+	\sum_{n=1}^{\infty} \mu g(10^9(1+0.002n))\lambda^n
+	\end{align}
+
+	son convergentes. Como $g(\cdot)$ es una función lineal,
+
+	\begin{align}
+	\lim_{n\rightarrow \infty} \frac{\mu g(10^9(1+0.002(n+1)))\lambda^{n+1}}{\mu g(10^9(1+ 0.002n))\lambda^n} = \lambda <1
+	\end{align}
+
+	La convergencia de las series se puede obtener mediante el Criterio de d'Alembert.
+\end{proof}
+
+Las series pueden ser convergentes y se pueden verificar mediante el método de comparación.
+
+Más aún, el algoritmo de votación descripto más arriba tiene las siguientes propiedades positivas:
+
+\begin{enumerate}
+	\item \textbf{Efecto anti-avalancha:} si siempre devolvemos tokens NAT con respecto a una proporción fija, un usuario podría utilizar para votar todos sus tokens NAT con el fin de recibir una tasa de retorno mayor a 1 (por ejemplo, 1,1); de esta forma la cantidad total de tokens NAT se incrementará exponencialmente, tal como se muestra en $1.1^n$
+	\item \textbf{Anti-soborno:} si un usuario con una valuación NR baja compra una gran cantidad de NAT para utilizarlo en votaciones, como el correspondiente $x_{i-1}^j$ es pequeño para direcciones con una valuación NR baja, recibirá muy pocos tokens NAT como incentivo, mientras que la mayoría de los NAT invertidos en la votación resultarán destruidos. Así, el usuario pierde muchos tokens NAT como penalización.
+	\item \textbf{Anti-inflación:} la depreciación de los tokens NAT se puede controlar de forma efectiva ya que su emisión está relacionada a la cantidad total de NAT en el mercado actual.
+	\item \textbf{\textit{Efecto cabeza}:} un usuario con una valuación NR alta durante las primeras etapas puede obtener una cantidad mayor total de tokens NAT.
+\end{enumerate}
